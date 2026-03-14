@@ -83,7 +83,10 @@ export default function RootLayout({
           href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"
           rel="stylesheet"
         />
-        <link href="/assets/css/bootstrap.min.css" rel="stylesheet" />
+        <link
+          href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+        />
         <link href="/assets/css/slick.css" rel="stylesheet" />
         <link
           id="switcher"

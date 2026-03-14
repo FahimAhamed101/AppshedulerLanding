@@ -25,13 +25,16 @@ const pageKeywords = [
 
 const menuLinks = [
   { href: "#mu-header", label: "Home" },
+  { href: "#mu-overview", label: "Overview" },
   { href: "#mu-feature", label: "Features" },
   { href: "#mu-how-it-works", label: "How It Works" },
   { href: "#mu-use-cases", label: "Use Cases" },
   { href: "#mu-video", label: "Demo" },
   { href: "#mu-apps-screenshot", label: "Screenshots" },
-  { href: "#mu-download", label: "Download" },
+  { href: "#mu-testimonials", label: "Testimonials" },
   { href: "#mu-faq", label: "FAQ" },
+  { href: "/blog", label: "Blog" },
+  { href: "#mu-download", label: "Download" },
   { href: "#mu-contact", label: "Contact" },
 ];
 
@@ -106,6 +109,30 @@ const faqItems = [
     answer:
       "Reach out through the contact form, in-app chat, or email support for fast onboarding and technical help.",
   },
+  {
+    id: "collapseSix",
+    question: "Which platforms does Appopener support?",
+    answer:
+      "Appopener works on Web, iOS, Android, Windows, and macOS. Your schedule syncs across devices so you can switch between phone, tablet, and desktop seamlessly.",
+  },
+  {
+    id: "collapseSeven",
+    question: "Can I schedule apps to open automatically on Android?",
+    answer:
+      "Yes. Appopener lets you schedule app launches on Android at specific times. Set up your timeline, assign apps to tasks, and they will open when it's time to work.",
+  },
+  {
+    id: "collapseEight",
+    question: "How does app automation work?",
+    answer:
+      "Appopener uses system-level scheduling to trigger app launches at predefined times. You create a schedule, link each task to the app you need, and the app opens automatically when the task starts.",
+  },
+  {
+    id: "collapseNine",
+    question: "Is my data secure?",
+    answer:
+      "Yes. We use encryption and follow security best practices. Your schedule and preferences stay private. See our Privacy Policy for full details.",
+  },
 ];
 
 const howItWorksSteps = [
@@ -141,6 +168,27 @@ const useCases = [
     title: "Workflow Automation For Operations",
     description:
       "Trigger repeatable app-opening schedules for support, QA, and operations workflows that run every day.",
+  },
+];
+
+const testimonials = [
+  {
+    name: "Sarah M.",
+    role: "Product Manager",
+    quote:
+      "Appopener cut my morning setup time in half. My calendar, notes, and Slack open right when I need them. Game changer for remote work.",
+  },
+  {
+    name: "James K.",
+    role: "Freelance Developer",
+    quote:
+      "I use it to block focus time and auto-open my code editor. No more wondering which app to open—it just happens. My productivity jumped.",
+  },
+  {
+    name: "Lisa T.",
+    role: "Support Team Lead",
+    quote:
+      "We schedule our support tool and ticket queue to open at shift start. Everyone stays aligned. Highly recommend for ops teams.",
   },
 ];
 
@@ -364,6 +412,53 @@ export default function Home() {
       </div>
 
       <main role="main">
+        <section id="mu-overview" className="mu-feature-area" style={{ padding: "60px 0", background: "#f8fafc" }}>
+          <div className="container">
+            <div className="row">
+              <div className="col-md-12">
+                <div className="mu-title-area">
+                  <h2 className="mu-title">App Overview</h2>
+                  <span className="mu-title-dot" />
+                </div>
+                <div style={{ maxWidth: "800px", lineHeight: 1.8 }}>
+                  <h3 style={{ fontSize: "20px", marginTop: "24px" }}>What the App Does</h3>
+                  <p>
+                    Appopener App Scheduler is a productivity tool that lets you plan tasks on a timeline, assign apps to each task, and automatically open those apps when it&apos;s time to work. Instead of manually switching between apps or forgetting what to do next, you set up your schedule once and let the app handle the rest. Whether you need to open your calendar at 9 AM, your code editor during a focus block, or your support dashboard at shift start, Appopener launches the right app at the right moment.
+                  </p>
+                  <p>
+                    The app combines a visual timeline scheduler with smart reminders and team schedule sharing. You can create recurring tasks, block out focus time, and sync with your existing calendar. When a task is about to start, you get a reminder notification, and when it starts, the linked app opens automatically. This reduces context switching, keeps you on track, and makes your workflow predictable.
+                  </p>
+
+                  <h3 style={{ fontSize: "20px", marginTop: "24px" }}>Who It Is For</h3>
+                  <p>
+                    Appopener is built for individuals and teams who want to stay organized without constant manual effort. Solo professionals—freelancers, consultants, and remote workers—use it to structure their day and avoid decision fatigue about which app to open next. Small teams and operations groups use it to align schedules, coordinate standups and releases, and ensure everyone opens the right tools at the right time. Support and QA teams run repeatable workflows where specific apps open at shift start or before handoffs.
+                  </p>
+                  <p>
+                    If you juggle multiple apps, struggle with context switching, or want a simpler way to run time-based workflows, Appopener is designed for you. It works across Web, iOS, Android, Windows, and macOS, so you can stay consistent whether you&apos;re at a desk or on the go.
+                  </p>
+
+                  <h3 style={{ fontSize: "20px", marginTop: "24px" }}>Key Benefits</h3>
+                  <p>
+                    <strong>Save time:</strong> No more opening apps manually or losing focus deciding what to do next. Your tools open when you need them.
+                  </p>
+                  <p>
+                    <strong>Stay consistent:</strong> Recurring schedules and reminders help you build routines. Morning check-in, focus blocks, and end-of-day wrap-up happen on schedule.
+                  </p>
+                  <p>
+                    <strong>Reduce context switching:</strong> By opening the right app for each task, you spend less time hopping between tools and more time in flow.
+                  </p>
+                  <p>
+                    <strong>Collaborate better:</strong> Team schedule sharing lets you see when colleagues are busy, avoid conflicts, and align on shared timelines.
+                  </p>
+                  <p>
+                    <strong>Automate workflows:</strong> For operations, support, and QA, Appopener can trigger the same app-opening sequence every day, reducing setup errors and keeping processes reliable.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
         <section id="mu-feature">
           <div className="container">
             <div className="row">
@@ -423,11 +518,10 @@ export default function Home() {
               <div className="col-md-12">
                 <div className="mu-feature-area">
                   <div className="mu-title-area">
-                    <h2 className="mu-title">How The App Opening Scheduler Works</h2>
+                    <h2 className="mu-title">How to Use the App</h2>
                     <span className="mu-title-dot" />
                     <p>
-                      Appopener gives you a simple workflow to plan tasks, open the
-                      right apps, and complete your day on schedule.
+                      Follow this step-by-step guide to get the most out of Appopener. We&apos;ve included tips and examples to help you succeed.
                     </p>
                   </div>
 
@@ -440,6 +534,15 @@ export default function Home() {
                         </div>
                       </div>
                     ))}
+                  </div>
+                  <div style={{ marginTop: "40px", padding: "24px", background: "#f8fafc", borderRadius: "12px" }}>
+                    <h3 style={{ marginBottom: "16px" }}>Tips and Examples</h3>
+                    <ul style={{ marginBottom: 0 }}>
+                      <li><strong>Morning routine:</strong> Schedule your calendar, email, and task app to open at 8:30 AM so you start the day with context.</li>
+                      <li><strong>Focus blocks:</strong> Set a 2-hour block and link your code editor or writing app. When the block starts, the app opens automatically.</li>
+                      <li><strong>Standup prep:</strong> Open your project tool and Slack 5 minutes before standup. No more scrambling to find the right tab.</li>
+                      <li><strong>End-of-day wrap-up:</strong> Schedule a 15-minute block with your notes app and task manager to capture what you accomplished.</li>
+                    </ul>
                   </div>
                 </div>
               </div>
@@ -587,6 +690,43 @@ export default function Home() {
                       <span>desktop app</span>
                     </a>
                   </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="mu-testimonials" style={{ padding: "60px 0", background: "#f8fafc" }}>
+          <div className="container">
+            <div className="row">
+              <div className="col-md-12">
+                <div className="mu-title-area">
+                  <h2 className="mu-title">What Users Say</h2>
+                  <span className="mu-title-dot" />
+                  <p>
+                    Teams and individuals use Appopener to stay on schedule and reduce app-switching friction.
+                  </p>
+                </div>
+                <div className="row">
+                  {testimonials.map((t) => (
+                    <div className="col-md-4" key={t.name}>
+                      <div
+                        style={{
+                          background: "#fff",
+                          padding: "24px",
+                          borderRadius: "12px",
+                          boxShadow: "0 4px 16px rgba(0,0,0,0.06)",
+                          height: "100%",
+                        }}
+                      >
+                        <p style={{ fontStyle: "italic", marginBottom: "16px", lineHeight: 1.6 }}>
+                          &quot;{t.quote}&quot;
+                        </p>
+                        <p style={{ margin: 0, fontWeight: 600 }}>{t.name}</p>
+                        <p style={{ margin: 0, fontSize: "14px", color: "#666" }}>{t.role}</p>
+                      </div>
+                    </div>
+                  ))}
                 </div>
               </div>
             </div>
@@ -775,10 +915,33 @@ export default function Home() {
       <footer id="mu-footer" role="contentinfo">
         <div className="container">
           <div className="mu-footer-area">
-            <p className="mu-copy-right">
-              &copy; 2026 <a href={siteUrl}>{siteName}</a>. All
-              rights reserved.
-            </p>
+            <div
+              style={{
+                display: "flex",
+                flexWrap: "wrap",
+                justifyContent: "space-between",
+                alignItems: "center",
+                gap: "16px",
+              }}
+            >
+              <p className="mu-copy-right">
+                &copy; {new Date().getFullYear()} <a href={siteUrl}>{siteName}</a>. All rights reserved.
+              </p>
+              <nav aria-label="Footer links">
+                <a href="/privacy" style={{ marginRight: "20px", color: "#d6e7ff" }}>
+                  Privacy Policy
+                </a>
+                <a href="/about" style={{ marginRight: "20px", color: "#d6e7ff" }}>
+                  About Us
+                </a>
+                <a href="/contact" style={{ marginRight: "20px", color: "#d6e7ff" }}>
+                  Contact
+                </a>
+                <a href="/terms" style={{ color: "#d6e7ff" }}>
+                  Terms of Service
+                </a>
+              </nav>
+            </div>
           </div>
         </div>
       </footer>
@@ -813,8 +976,14 @@ export default function Home() {
         src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"
         strategy="beforeInteractive"
       />
-      <Script src="/assets/js/bootstrap.min.js" strategy="afterInteractive" />
-      <Script src="/assets/js/slick.min.js" strategy="afterInteractive" />
+      <Script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/js/bootstrap.min.js"
+        strategy="afterInteractive"
+      />
+      <Script
+        src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"
+        strategy="afterInteractive"
+      />
       <Script src="/assets/js/app.js" strategy="afterInteractive" />
       <Script src="/assets/js/custom.js" strategy="afterInteractive" />
     </>
