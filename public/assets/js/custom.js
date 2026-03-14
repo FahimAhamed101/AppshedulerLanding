@@ -68,18 +68,20 @@
 		var $target;
 		var dest = 0;
 
-		event.preventDefault();
 		closeMenuOverlay();
 
+		// Only handle smooth scroll for same-page anchor links
 		if (!hash) {
-			return;
+			return; // Let browser handle /blog, /contact, etc.
 		}
 
 		$target = $(hash);
 
 		if (!$target.length) {
-			return;
+			return; // Target not on this page, let default navigation work
 		}
+
+		event.preventDefault();
 
 		if ($target.offset().top > $(document).height() - $(window).height()) {
 			dest = $(document).height() - $(window).height();

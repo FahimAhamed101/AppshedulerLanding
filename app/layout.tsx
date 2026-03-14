@@ -98,6 +98,7 @@ export default function RootLayout({
           href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
           rel="stylesheet"
         />
+        <meta name="google-site-verification" content="qyyo8aUN9zTPVWSMaxStSvR8Fl5kBSuCvdUUBfIOy8I" />
       </head>
       <body>{children}</body>
     </html>
