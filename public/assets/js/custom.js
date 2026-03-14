@@ -25,33 +25,37 @@
 	/*  1. FULL OVERLYAY MENU
 	/* ----------------------------------------------------------- */
 
-   $('.mu-menu-btn').on('click', function(event) {
-	   
-        event.preventDefault();
-        
-        $('.mu-menu-full-overlay').addClass('mu-menu-full-overlay-show');
-       
-    });
-   
-    // when click colose btn
-    
-    $('.mu-menu-close-btn').on('click', function(event) {
-	    
-	    event.preventDefault();
-	    
+	function openMenuOverlay() {
+		$('.mu-menu-full-overlay').addClass('mu-menu-full-overlay-show');
+	}
+
+	function closeMenuOverlay() {
 		$('.mu-menu-full-overlay').removeClass('mu-menu-full-overlay-show');
-		
-    });
+	}
 
-    // when click menu item overlay disappear
+	$(document).on('click', '.mu-menu-btn', function (event) {
+		event.preventDefault();
+		openMenuOverlay();
+	});
 
-    $('.mu-menu a').on('click', function(event) {
-	   
-        event.preventDefault();
-        
-        $('.mu-menu-full-overlay').removeClass('mu-menu-full-overlay-show');
-       
-    });
+	$(document).on('click', '.mu-menu-close-btn', function (event) {
+		event.preventDefault();
+		closeMenuOverlay();
+	});
+
+	$(document).on('click', '.mu-menu-full-overlay', function () {
+		closeMenuOverlay();
+	});
+
+	$(document).on('click', '.mu-menu-full-overlay-inner', function (event) {
+		event.stopPropagation();
+	});
+
+	$(document).on('keyup', function (event) {
+		if (event.key === 'Escape') {
+			closeMenuOverlay();
+		}
+	});
 
     /* ----------------------------------------------------------- */
 	/*  2. MENU SMOOTH SCROLLING
@@ -59,18 +63,32 @@
 
 	//MENU SCROLLING WITH ACTIVE ITEM SELECTED
 
-	 $(".mu-menu a").click(function(event){
-         event.preventDefault();
-         //calculate destination place
-         var dest=0;
-         if($(this.hash).offset().top > $(document).height()-$(window).height()){
-              dest=$(document).height()-$(window).height();
-         }else{
-              dest=$(this.hash).offset().top;
-         }
-         //go to destination
-         $('html,body').animate({scrollTop:dest}, 1000,'swing');
-     });
+	$(document).on('click', '.mu-menu a', function (event) {
+		var hash = this.hash;
+		var $target;
+		var dest = 0;
+
+		event.preventDefault();
+		closeMenuOverlay();
+
+		if (!hash) {
+			return;
+		}
+
+		$target = $(hash);
+
+		if (!$target.length) {
+			return;
+		}
+
+		if ($target.offset().top > $(document).height() - $(window).height()) {
+			dest = $(document).height() - $(window).height();
+		} else {
+			dest = $target.offset().top;
+		}
+
+		$('html,body').stop(true).animate({ scrollTop: dest }, 1000, 'swing');
+	});
 	    
 
 		
@@ -125,24 +143,72 @@
 	/*  4. APPS SCREENSHOT SLIDEER ( SLICK SLIDER )
 	/* ----------------------------------------------------------- */
 
-		$('.mu-apps-screenshot-slider').slick({
-		  slidesToShow: 4,
-		  responsive: [
-		    {
-		      breakpoint: 768,
-		      settings: {
-		        arrows: true,
-		        slidesToShow: 3
-		      }
-		    },
-		    {
-		      breakpoint: 480,
-		      settings: {
-		        arrows: true,
-		        slidesToShow: 1
-		      }
-		    }
-		  ]
+		function initScreenshotSlider() {
+			var $screenshotSlider = $('.mu-apps-screenshot-slider');
+
+			if (!$screenshotSlider.length || typeof $.fn.slick !== 'function') {
+				return;
+			}
+
+			if ($screenshotSlider.hasClass('slick-initialized')) {
+				$screenshotSlider.slick('setPosition');
+				return;
+			}
+
+			$screenshotSlider.slick({
+				slidesToShow: 4,
+				slidesToScroll: 1,
+				arrows: true,
+				dots: false,
+				infinite: true,
+				autoplay: true,
+				autoplaySpeed: 2500,
+				responsive: [
+					{
+						breakpoint: 992,
+						settings: {
+							arrows: true,
+							slidesToShow: 3
+						}
+					},
+					{
+						breakpoint: 768,
+						settings: {
+							arrows: true,
+							slidesToShow: 2
+						}
+					},
+					{
+						breakpoint: 480,
+						settings: {
+							arrows: true,
+							slidesToShow: 1
+						}
+					}
+				]
+			});
+		}
+
+		(function waitForSlick(triesLeft) {
+			if (typeof $.fn.slick === 'function') {
+				initScreenshotSlider();
+				return;
+			}
+
+			if (triesLeft <= 0) {
+				return;
+			}
+
+			setTimeout(function () {
+				waitForSlick(triesLeft - 1);
+			}, 100);
+		})(40);
+
+		$(window).on('resize', function () {
+			var $screenshotSlider = $('.mu-apps-screenshot-slider');
+			if ($screenshotSlider.hasClass('slick-initialized')) {
+				$screenshotSlider.slick('setPosition');
+			}
 		});
 
 
