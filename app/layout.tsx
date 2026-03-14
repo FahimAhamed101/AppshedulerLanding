@@ -99,6 +99,8 @@ export default function RootLayout({
           rel="stylesheet"
         />
         <meta name="google-site-verification" content="qyyo8aUN9zTPVWSMaxStSvR8Fl5kBSuCvdUUBfIOy8I" />
+        <script async src="https://www.googletagmanager.com/gtag/js?id=qyyo8aUN9zTPVWSMaxStSvR8Fl5kBSuCvdUUBfIOy8I"></script>
+      
       </head>
       <body>{children}</body>
     </html>
