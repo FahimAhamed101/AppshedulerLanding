@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
 import PageLayout from "@/components/PageLayout";
+import { seoKeywords } from "@/lib/seo-keywords";
 
 export const metadata: Metadata = {
   title: "Privacy Policy",
   description:
-    "Appopener App Scheduler privacy policy. Learn how we collect, use, and protect your data.",
+    "Appopener App Scheduler privacy policy. Learn how we collect, use, and protect your data. App scheduler, auto open apps, automatic app launcher.",
+  keywords: seoKeywords,
 };
 
 export default function PrivacyPage() {

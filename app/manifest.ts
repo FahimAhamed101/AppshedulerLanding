@@ -2,10 +2,10 @@ import type { MetadataRoute } from "next";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: "Appopener App Scheduler",
-    short_name: "Appopener",
+    name: "App Scheduler – Auto Open & Close Apps | Productivity Tool",
+    short_name: "App Scheduler",
     description:
-      "Appopener App Scheduler helps teams and individuals schedule tasks, open apps automatically, and stay on track with smart reminders.",
+      "App Scheduler to auto open and close apps on schedule. Productivity tool—schedule tasks, open and close apps automatically, and stay on track with smart reminders.",
     start_url: "/",
     scope: "/",
     display: "standalone",

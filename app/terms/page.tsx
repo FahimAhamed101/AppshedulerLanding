@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
 import PageLayout from "@/components/PageLayout";
+import { seoKeywords } from "@/lib/seo-keywords";
 
 export const metadata: Metadata = {
   title: "Terms of Service",
   description:
-    "Terms of Service for Appopener App Scheduler. Read our terms and conditions of use.",
+    "Terms of Service for Appopener App Scheduler. Read our terms and conditions for app scheduler, automatic app launcher, and schedule apps android.",
+  keywords: seoKeywords,
 };
 
 export default function TermsPage() {

@@ -1,11 +1,13 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import PageLayout from "@/components/PageLayout";
+import { seoKeywords } from "@/lib/seo-keywords";
 
 export const metadata: Metadata = {
   title: "Blog",
   description:
-    "Articles about app scheduling, productivity, workflow automation, and best practices for Android and beyond.",
+    "Articles about app scheduling, auto open apps, schedule apps android, productivity android app, workflow automation, and automatic app launcher tips.",
+  keywords: seoKeywords,
 };
 
 const blogPosts = [

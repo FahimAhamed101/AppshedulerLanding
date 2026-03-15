@@ -1,26 +1,18 @@
 /* eslint-disable @next/next/no-img-element */
 import type { Metadata } from "next";
 import Script from "next/script";
+import { seoKeywords } from "@/lib/seo-keywords";
 
 const siteUrl = "https://appopener.app";
-const siteName = "Appopener App Scheduler";
-const pageTitle = "Appopener App Scheduler - Task Scheduling and App Launch Automation";
+const siteName = "App Scheduler – Auto Open & Close Apps | Productivity Tool";
+const pageTitle = "App Scheduler – Auto Open & Close Apps | Productivity Tool";
 const pageDescription =
-  "Appopener App Scheduler helps teams and individuals schedule tasks, launch apps on time, automate reminders, and stay organized from one dashboard.";
+  "App Scheduler to auto open and close apps on schedule. Productivity tool for teams and individuals—schedule tasks, automate reminders, and stay organized.";
 const ogImageUrl = `${siteUrl}/assets/images/1.png`;
 const pageKeywords = [
-  "app scheduler",
-  "app opening scheduler",
-  "app launch automation",
-  "automatic app opener",
-  "open apps automatically",
-  "task scheduling app",
+  ...seoKeywords,
   "team scheduling software",
-  "calendar workflow automation",
   "productivity dashboard",
-  "meeting reminder app",
-  "workflow planner",
-  "Appopener App Scheduler",
 ];
 
 const menuLinks = [
@@ -212,7 +204,7 @@ export const metadata: Metadata = {
         url: ogImageUrl,
         width: 1200,
         height: 630,
-        alt: "Appopener App Scheduler dashboard preview",
+        alt: "App Scheduler – Auto Open & Close Apps dashboard preview",
       },
     ],
   },
@@ -344,13 +336,13 @@ export default function Home() {
                 <div className="mu-header-featured-img">
                   <img
                     src="/assets/images/1.png"
-                    alt="Appopener App Scheduler dashboard preview"
+                    alt="App Scheduler – Auto Open & Close Apps dashboard preview"
                     fetchPriority="high"
                   />
                 </div>
 
                 <div className="mu-header-featured-content">
-                  <p className="mu-kicker">Appopener App Scheduler</p>
+                  <p className="mu-kicker">App Scheduler – Auto Open & Close Apps | Productivity Tool</p>
                   <h1>
                     App Scheduler To Open Your Apps <span>Anytime</span>
                   </h1>
@@ -610,7 +602,7 @@ export default function Home() {
                 src="https://www.youtube.com/embed/9r40_ffCZ_I"
                 frameBorder="0"
                 allowFullScreen
-                title="Appopener App Scheduler demo video"
+                title="App Scheduler – Auto Open & Close Apps demo video"
               />
             </div>
           </div>

@@ -1,20 +1,22 @@
 /* eslint-disable @next/next/no-css-tags, @next/next/no-page-custom-font */
 import type { Metadata } from "next";
 import "./globals.css";
+import { seoKeywords } from "@/lib/seo-keywords";
 
 const siteUrl = "https://appopener.app";
-const siteName = "Appopener App Scheduler";
+const siteName = "App Scheduler – Auto Open & Close Apps | Productivity Tool";
 const defaultDescription =
-  "Appopener App Scheduler helps teams and individuals schedule tasks, automate reminders, and open apps on time.";
+  "App Scheduler to auto open and close apps on schedule. Productivity tool for Android and more—schedule tasks, automate reminders, and stay organized.";
 const googleSiteVerification = process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION;
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
     default: siteName,
-    template: "%s | Appopener",
+    template: "%s | App Scheduler",
   },
   description: defaultDescription,
+  keywords: seoKeywords,
   applicationName: siteName,
   authors: [{ name: "Appopener Team" }],
   creator: "Appopener Team",
@@ -34,7 +36,7 @@ export const metadata: Metadata = {
         url: "/assets/images/1.png",
         width: 1200,
         height: 630,
-        alt: "Appopener App Scheduler dashboard",
+        alt: "App Scheduler – Auto Open & Close Apps dashboard",
       },
     ],
   },

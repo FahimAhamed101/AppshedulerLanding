@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import PageLayout from "@/components/PageLayout";
+import { seoKeywords } from "@/lib/seo-keywords";
 
 const blogPosts: Record<
   string,
@@ -161,7 +162,8 @@ export async function generateMetadata({
   if (!post) return { title: "Blog" };
   return {
     title: post.title,
-    description: `${post.title} - Appopener Blog`,
+    description: `${post.title} - Appopener Blog. App scheduler, auto open apps, schedule apps android, productivity android app.`,
+    keywords: seoKeywords,
   };
 }
 

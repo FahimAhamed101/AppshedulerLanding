@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
 import PageLayout from "@/components/PageLayout";
+import { seoKeywords } from "@/lib/seo-keywords";
 
 export const metadata: Metadata = {
   title: "Contact Us",
   description:
-    "Contact the Appopener team. Get support, request features, or ask questions about our app scheduler.",
+    "Contact the Appopener team. Get support, request features, or ask questions about our app scheduler, auto open apps, and automatic app launcher.",
+  keywords: seoKeywords,
 };
 
 export default function ContactPage() {

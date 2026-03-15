@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
 import PageLayout from "@/components/PageLayout";
+import { seoKeywords } from "@/lib/seo-keywords";
 
 export const metadata: Metadata = {
   title: "About Us",
   description:
-    "Learn about Appopener App Scheduler. We help teams and individuals schedule tasks and open apps automatically.",
+    "Learn about Appopener App Scheduler. We help teams and individuals schedule tasks, auto open apps, and boost productivity. Automatic app launcher for Android and more.",
+  keywords: seoKeywords,
 };
 
 export default function AboutPage() {
