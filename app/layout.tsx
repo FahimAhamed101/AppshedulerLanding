@@ -102,8 +102,17 @@ export default function RootLayout({
         />
         <meta name="google-site-verification" content="qyyo8aUN9zTPVWSMaxStSvR8Fl5kBSuCvdUUBfIOy8I" />
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-8YZFLGV9X7"></script>
-     
-      
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-8YZFLGV9X7');
+            `,
+          }}
+        />
+
       </head>
       <body>{children}</body>
     </html>
