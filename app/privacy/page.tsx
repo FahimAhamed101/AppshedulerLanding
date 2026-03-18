@@ -1,13 +1,15 @@
 import type { Metadata } from "next";
 import PageLayout from "@/components/PageLayout";
-import { seoKeywords } from "@/lib/seo-keywords";
+import { createPageMetadata } from "@/lib/page-metadata";
+import { pageKeywordGroups } from "@/lib/seo-keywords";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = createPageMetadata({
   title: "Privacy Policy",
   description:
-    "Appopener App Scheduler privacy policy. Learn how we collect, use, and protect your data. App scheduler, auto open apps, automatic app launcher.",
-  keywords: seoKeywords,
-};
+    "Read the Appopener privacy policy and learn how we collect, use, and protect data for our direct Android APK download and app scheduler services.",
+  path: "/privacy",
+  keywords: pageKeywordGroups.privacy,
+});
 
 export default function PrivacyPage() {
   return (

@@ -1,17 +1,20 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import PageLayout from "@/components/PageLayout";
-import { seoKeywords } from "@/lib/seo-keywords";
+import { createPageMetadata } from "@/lib/page-metadata";
+import { pageKeywordGroups } from "@/lib/seo-keywords";
 
-export const metadata: Metadata = {
-  title: "Contact Us",
+export const metadata: Metadata = createPageMetadata({
+  title: "Contact",
   description:
-    "Contact the Appopener team. Get support, request features, or ask questions about our app scheduler, auto open apps, and automatic app launcher.",
-  keywords: seoKeywords,
-};
+    "Contact the Appopener team for support, direct APK download help, app scheduler questions, and automatic app launcher setup.",
+  path: "/contact",
+  keywords: pageKeywordGroups.contact,
+});
 
 export default function ContactPage() {
   return (
-    <PageLayout title="Contact Us">
+    <PageLayout title="Contact Appopener">
       <div style={{ maxWidth: "800px", lineHeight: 1.8 }}>
         <p>
           Have a question, need support, or want to learn more about
@@ -59,7 +62,7 @@ export default function ContactPage() {
           <h3 style={{ marginBottom: "16px" }}>Send us a message</h3>
           <p style={{ marginBottom: "16px" }}>
             You can also use the contact form on our{" "}
-            <a href="/#mu-contact">home page</a> to send a message directly.
+            <Link href="/#mu-contact">home page</Link> to send a message directly.
           </p>
         </div>
       </div>

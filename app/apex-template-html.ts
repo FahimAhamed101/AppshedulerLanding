@@ -23,9 +23,8 @@ export const apexTemplateHtml = String.raw`
 							<p>Schedule launches, automate reminders, and keep your workflow organized in one clean dashboard made for fast teams.</p>
 
 							<div class="mu-app-download-area">
-								<h4>Get Appopener Today</h4>
-								<a class="mu-apple-btn" href="#mu-download" aria-label="View iOS download options"><i class="fa fa-apple"></i><span>app store</span></a>
-								<a class="mu-google-btn" href="#mu-download" aria-label="View Android download options"><i class="fa fa-android"></i><span>google play</span></a>
+								<h4>No Google Play or App Store required</h4>
+								<a class="mu-google-btn" href="https://drive.google.com/uc?export=download&id=1yCrMGpbo2QVDxPCusB9gs2zN8PgZGE5x" target="_blank" rel="noopener noreferrer" aria-label="Download Appopener APK directly"><i class="fa fa-download"></i><span>download now</span></a>
 							</div>
 
 						</div>
@@ -346,16 +345,14 @@ export const apexTemplateHtml = String.raw`
 						<div class="mu-download-area">
 
 							<div class="mu-title-area">
-								<h2 class="mu-title">Open The App Anytime</h2>
+								<h2 class="mu-title">Download Appopener APK</h2>
 								<span class="mu-title-dot"></span>
-								<p>Use Appopener on mobile or desktop and keep your schedule available whenever work starts.</p>
+								<p>Direct Android download for Appopener. No Google Play or App Store listing is required.</p>
 							</div>
 
 
 							<div class="mu-download-content">
-								<a class="mu-apple-btn" href="#mu-contact" aria-label="Contact Appopener for iOS app access"><i class="fa fa-apple"></i><span>app store</span></a>
-								<a class="mu-google-btn" href="#mu-contact" aria-label="Contact Appopener for Android app access"><i class="fa fa-android"></i><span>google play</span></a>
-								<a class="mu-windows-btn" href="#mu-contact" aria-label="Contact Appopener for desktop app access"><i class="fa fa-windows"></i><span>desktop app</span></a>
+								<a class="mu-google-btn" href="https://drive.google.com/uc?export=download&id=1yCrMGpbo2QVDxPCusB9gs2zN8PgZGE5x" target="_blank" rel="noopener noreferrer" aria-label="Download Appopener APK directly"><i class="fa fa-download"></i><span>download now</span></a>
 							</div>
 
 

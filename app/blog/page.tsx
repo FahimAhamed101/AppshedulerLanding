@@ -1,58 +1,61 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import PageLayout from "@/components/PageLayout";
-import { seoKeywords } from "@/lib/seo-keywords";
+import { createPageMetadata } from "@/lib/page-metadata";
+import { pageKeywordGroups } from "@/lib/seo-keywords";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = createPageMetadata({
   title: "Blog",
   description:
-    "Articles about app scheduling, auto open apps, schedule apps android, productivity android app, workflow automation, and automatic app launcher tips.",
-  keywords: seoKeywords,
-};
+    "Articles about Appopener download, app scheduler APK setup, open in app YouTube workflows, Android automation, and automatic app launcher tips.",
+  path: "/blog",
+  keywords: pageKeywordGroups.blog,
+});
 
 const blogPosts = [
   {
     slug: "schedule-apps-automatically-android",
     title: "How to Schedule Apps Automatically on Android",
     excerpt:
-      "Learn how to automate app launches on your Android device. We walk through the best methods for scheduling apps to open at specific times without manual intervention.",
+      "Learn how to automate app launches on your Android device and schedule apps to open at specific times.",
     date: "2026-03-12",
   },
   {
     slug: "best-productivity-apps-android",
     title: "Best Productivity Apps for Android in 2026",
     excerpt:
-      "A curated list of the top productivity and scheduling apps for Android users. From task management to automation, find the right tools for your workflow.",
+      "A focused list of productivity and scheduling apps for Android users, from task management to automation.",
     date: "2026-03-10",
   },
   {
     slug: "how-app-automation-works",
-    title: "How App Automation Works: A Developer&apos;s Guide",
+    title: "How App Automation Works: A Developer's Guide",
     excerpt:
-      "Understanding the technology behind app scheduling and automation. How do schedulers trigger app launches, and what makes them reliable? A developer's perspective.",
+      "Understand the technology behind app scheduling and automation, and what makes reliable launch workflows possible.",
     date: "2026-03-08",
   },
   {
     slug: "workflow-automation-tips-teams",
     title: "Workflow Automation Tips for Remote Teams",
     excerpt:
-      "Remote teams need structure. Discover how app scheduling and workflow automation can keep your distributed team aligned and productive.",
+      "Discover how app scheduling and workflow automation can keep distributed teams aligned and productive.",
     date: "2026-03-05",
   },
   {
     slug: "reduce-context-switching-productivity",
     title: "Reduce Context Switching to Boost Productivity",
     excerpt:
-      "Constant app switching kills focus. Learn how scheduled app launches and smart reminders can help you stay in the flow.",
+      "Learn how scheduled app launches and smart reminders can help you stay in the flow.",
     date: "2026-03-01",
   },
 ];
 
 export default function BlogPage() {
   return (
-    <PageLayout title="Blog">
+    <PageLayout title="Appopener Blog">
       <p style={{ marginBottom: "32px", fontSize: "17px", color: "#555" }}>
-        Tips, guides, and updates about app scheduling, productivity, and workflow automation.
+        Tips, guides, and updates about Appopener downloads, app scheduling,
+        productivity, and workflow automation.
       </p>
       <div style={{ display: "flex", flexDirection: "column", gap: "32px" }}>
         {blogPosts.map((post) => (
@@ -73,7 +76,12 @@ export default function BlogPage() {
             </Link>
             <time
               dateTime={post.date}
-              style={{ display: "block", color: "#666", marginBottom: "8px", fontSize: "14px" }}
+              style={{
+                display: "block",
+                color: "#666",
+                marginBottom: "8px",
+                fontSize: "14px",
+              }}
             >
               {new Date(post.date).toLocaleDateString("en-US", {
                 year: "numeric",
@@ -91,7 +99,7 @@ export default function BlogPage() {
                 fontWeight: 600,
               }}
             >
-              Read more →
+              Read more -&gt;
             </Link>
           </article>
         ))}
