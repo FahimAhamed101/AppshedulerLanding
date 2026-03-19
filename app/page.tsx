@@ -532,8 +532,8 @@ export default function Home() {
                     <h2 className="mu-heading-title">Talk To The Appopener Team</h2>
                     <span className="mu-title-dot" />
                     <p>
-                      Need a custom setup for your company? Send us a message
-                      and we will help you launch quickly.
+                      Looking for a remote software engineer or want to create
+                      a web app, website, or mobile app? Contact me.
                     </p>
                   </div>
 
@@ -588,19 +588,28 @@ export default function Home() {
                         <div className="mu-contact-right">
                           <div className="mu-contact-right-single">
                             <div className="mu-icon">
+                              <i className="fa fa-whatsapp" />
+                            </div>
+                            <p>
+                              <strong>WhatsApp</strong>
+                            </p>
+                            <p>
+                              <a href="https://wa.me/8801706617723">
+                                +8801706617723
+                              </a>
+                            </p>
+                          </div>
+
+                          <div className="mu-contact-right-single">
+                            <div className="mu-icon">
                               <i className="fa fa-envelope" />
                             </div>
                             <p>
                               <strong>Email</strong>
                             </p>
                             <p>
-                              <a href="mailto:hello@appopener.app">
-                                hello@appopener.app
-                              </a>
-                            </p>
-                            <p>
-                              <a href="mailto:support@appopener.app">
-                                support@appopener.app
+                              <a href="mailto:fahimahamedweb@gmail.com">
+                                fahimahamedweb@gmail.com
                               </a>
                             </p>
                           </div>

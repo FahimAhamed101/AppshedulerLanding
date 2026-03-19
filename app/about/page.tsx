@@ -59,7 +59,7 @@ export default function AboutPage() {
         <h2 style={{ marginTop: "28px", fontSize: "22px" }}>Contact Us</h2>
         <p>
           We&apos;d love to hear from you. Reach out at{" "}
-          <a href="mailto:hello@appopener.app">hello@appopener.app</a> or
+          <a href="mailto:fahimahamedweb@gmail.com">fahimahamedweb@gmail.com</a> or
           visit our <a href="/contact">Contact page</a>.
         </p>
       </div>

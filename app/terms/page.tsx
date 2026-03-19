@@ -97,7 +97,7 @@ export default function TermsPage() {
         </h2>
         <p>
           For questions about these Terms, contact us at{" "}
-          <a href="mailto:support@appopener.app">support@appopener.app</a> or
+          <a href="mailto:fahimahamedweb@gmail.com">fahimahamedweb@gmail.com</a> or
           visit our <a href="/contact">Contact page</a>.
         </p>
       </div>

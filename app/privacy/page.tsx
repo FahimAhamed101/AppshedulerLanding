@@ -72,7 +72,7 @@ export default function PrivacyPage() {
         <p>
           Depending on your location, you may have the right to access,
           correct, or delete your personal data. You can manage your account
-          settings or contact us at support@appopener.app to exercise these
+          settings or contact us at fahimahamedweb@gmail.com to exercise these
           rights.
         </p>
 
@@ -90,7 +90,7 @@ export default function PrivacyPage() {
         </h2>
         <p>
           If you have questions about this Privacy Policy, please contact us at{" "}
-          <a href="mailto:support@appopener.app">support@appopener.app</a> or
+          <a href="mailto:fahimahamedweb@gmail.com">fahimahamedweb@gmail.com</a> or
           visit our <a href="/contact">Contact page</a>.
         </p>
       </div>

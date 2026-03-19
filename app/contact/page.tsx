@@ -17,23 +17,27 @@ export default function ContactPage() {
     <PageLayout title="Contact Appopener">
       <div style={{ maxWidth: "800px", lineHeight: 1.8 }}>
         <p>
-          Have a question, need support, or want to learn more about
-          Appopener? We&apos;re here to help. Reach out through any of the
-          options below.
+          Looking for a remote software engineer or want to create a web app,
+          website, or mobile app? Contact me through WhatsApp or email below.
         </p>
 
         <div style={{ marginTop: "32px" }}>
+          <h2 style={{ fontSize: "20px", marginBottom: "12px" }}>
+            <i className="fa fa-whatsapp" style={{ marginRight: "10px" }} />
+            WhatsApp
+          </h2>
+          <p>
+            <a href="https://wa.me/8801706617723">+8801706617723</a>
+          </p>
+        </div>
+
+        <div style={{ marginTop: "28px" }}>
           <h2 style={{ fontSize: "20px", marginBottom: "12px" }}>
             <i className="fa fa-envelope" style={{ marginRight: "10px" }} />
             Email
           </h2>
           <p>
-            General inquiries:{" "}
-            <a href="mailto:hello@appopener.app">hello@appopener.app</a>
-          </p>
-          <p>
-            Support:{" "}
-            <a href="mailto:support@appopener.app">support@appopener.app</a>
+            <a href="mailto:fahimahamedweb@gmail.com">fahimahamedweb@gmail.com</a>
           </p>
         </div>
 

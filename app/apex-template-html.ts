@@ -477,7 +477,7 @@ export const apexTemplateHtml = String.raw`
 							<div class="mu-title-area">
 								<h2 class="mu-heading-title">Talk To The Appopener Team</h2>
 								<span class="mu-title-dot"></span>
-								<p>Need a custom setup for your company? Send us a message and we will help you launch quickly.</p>
+								<p>Looking for a remote software engineer or want to create a web app, website, or mobile app? Contact me.</p>
 							</div>
 
 							
@@ -520,10 +520,15 @@ export const apexTemplateHtml = String.raw`
 											</div>
 
 											<div class="mu-contact-right-single">
+												<div class="mu-icon"><i class="fa fa-whatsapp"></i></div>
+												<p><strong>WhatsApp</strong></p>
+												<p><a href="https://wa.me/8801706617723">+8801706617723</a></p>
+											</div>
+
+											<div class="mu-contact-right-single">
 												<div class="mu-icon"><i class="fa fa-envelope"></i></div>
 												<p><strong>Email</strong></p>
-												<p><a href="mailto:hello@appopener.app">hello@appopener.app</a></p>
-												<p><a href="mailto:support@appopener.app">support@appopener.app</a></p>
+												<p><a href="mailto:fahimahamedweb@gmail.com">fahimahamedweb@gmail.com</a></p>
 											</div>
 
 											<div class="mu-contact-right-single">
