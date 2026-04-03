@@ -1,43 +1,36 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import PageLayout from "@/components/PageLayout";
-import { createPageMetadata } from "@/lib/page-metadata";
-import { pageKeywordGroups } from "@/lib/seo-keywords";
+import { seoKeywords } from "@/lib/seo-keywords";
 
-export const metadata: Metadata = createPageMetadata({
-  title: "Contact",
+export const metadata: Metadata = {
+  title: "Contact Us",
   description:
-    "Contact the Appopener team for support, direct APK download help, app scheduler questions, and automatic app launcher setup.",
-  path: "/contact",
-  keywords: pageKeywordGroups.contact,
-});
+    "Contact the Appopener team. Get support, request features, or ask questions about our app scheduler, auto open apps, and automatic app launcher.",
+  keywords: seoKeywords,
+};
 
 export default function ContactPage() {
   return (
-    <PageLayout title="Contact Appopener">
+    <PageLayout title="Contact Us">
       <div style={{ maxWidth: "800px", lineHeight: 1.8 }}>
         <p>
-          Looking for a remote software engineer or want to create a web app,
-          website, or mobile app? Contact me through WhatsApp or email below.
+          Have a question, need support, or want to learn more about
+          Appopener? We&apos;re here to help. Reach out through any of the
+          options below.
         </p>
 
         <div style={{ marginTop: "32px" }}>
-          <h2 style={{ fontSize: "20px", marginBottom: "12px" }}>
-            <i className="fa fa-whatsapp" style={{ marginRight: "10px" }} />
-            WhatsApp
-          </h2>
-          <p>
-            <a href="https://wa.me/8801706617723">+8801706617723</a>
-          </p>
-        </div>
-
-        <div style={{ marginTop: "28px" }}>
           <h2 style={{ fontSize: "20px", marginBottom: "12px" }}>
             <i className="fa fa-envelope" style={{ marginRight: "10px" }} />
             Email
           </h2>
           <p>
-            <a href="mailto:fahimahamedweb@gmail.com">fahimahamedweb@gmail.com</a>
+            General inquiries:{" "}
+            <a href="mailto:hello@appopener.app">hello@appopener.app</a>
+          </p>
+          <p>
+            Support:{" "}
+            <a href="mailto:support@appopener.app">support@appopener.app</a>
           </p>
         </div>
 
@@ -66,7 +59,7 @@ export default function ContactPage() {
           <h3 style={{ marginBottom: "16px" }}>Send us a message</h3>
           <p style={{ marginBottom: "16px" }}>
             You can also use the contact form on our{" "}
-            <Link href="/#mu-contact">home page</Link> to send a message directly.
+            <a href="/#mu-contact">home page</a> to send a message directly.
           </p>
         </div>
       </div>

@@ -1,19 +1,17 @@
 import type { Metadata } from "next";
 import PageLayout from "@/components/PageLayout";
-import { createPageMetadata } from "@/lib/page-metadata";
-import { pageKeywordGroups } from "@/lib/seo-keywords";
+import { seoKeywords } from "@/lib/seo-keywords";
 
-export const metadata: Metadata = createPageMetadata({
-  title: "About",
+export const metadata: Metadata = {
+  title: "About Us",
   description:
-    "Learn about Appopener, the direct app opener download for Android that helps teams and individuals schedule apps, automate reminders, and reduce context switching.",
-  path: "/about",
-  keywords: pageKeywordGroups.about,
-});
+    "Learn about Appopener App Scheduler. We help teams and individuals schedule tasks, auto open apps, and boost productivity. Automatic app launcher for Android and more.",
+  keywords: seoKeywords,
+};
 
 export default function AboutPage() {
   return (
-    <PageLayout title="About Appopener">
+    <PageLayout title="About Us">
       <div style={{ maxWidth: "800px", lineHeight: 1.8 }}>
         <p>
           Appopener App Scheduler was built to solve a simple problem: too many
@@ -35,8 +33,7 @@ export default function AboutPage() {
           We develop an app-first scheduler that lets you plan your day, set
           up recurring tasks, and automatically open the apps you need when
           it&apos;s time to work. Whether you&apos;re a solo professional or part
-          of a fast-moving team, Appopener helps you stay on schedule with a
-          direct Android APK download and simple app-launch automation.
+          of a fast-moving team, Appopener helps you stay on schedule.
         </p>
 
         <h2 style={{ marginTop: "28px", fontSize: "22px" }}>
@@ -59,7 +56,7 @@ export default function AboutPage() {
         <h2 style={{ marginTop: "28px", fontSize: "22px" }}>Contact Us</h2>
         <p>
           We&apos;d love to hear from you. Reach out at{" "}
-          <a href="mailto:fahimahamedweb@gmail.com">fahimahamedweb@gmail.com</a> or
+          <a href="mailto:hello@appopener.app">hello@appopener.app</a> or
           visit our <a href="/contact">Contact page</a>.
         </p>
       </div>

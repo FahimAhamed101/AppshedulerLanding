@@ -1,15 +1,8 @@
 import type { MetadataRoute } from "next";
+import { blogSlugs } from "@/lib/blog-data";
 
 const baseUrl = "https://appopener.app";
 const lastModified = new Date();
-
-const blogSlugs = [
-  "schedule-apps-automatically-android",
-  "best-productivity-apps-android",
-  "how-app-automation-works",
-  "workflow-automation-tips-teams",
-  "reduce-context-switching-productivity",
-];
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticPages: MetadataRoute.Sitemap = [

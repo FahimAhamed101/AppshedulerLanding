@@ -1,15 +1,13 @@
 import type { Metadata } from "next";
 import PageLayout from "@/components/PageLayout";
-import { createPageMetadata } from "@/lib/page-metadata";
-import { pageKeywordGroups } from "@/lib/seo-keywords";
+import { seoKeywords } from "@/lib/seo-keywords";
 
-export const metadata: Metadata = createPageMetadata({
+export const metadata: Metadata = {
   title: "Privacy Policy",
   description:
-    "Read the Appopener privacy policy and learn how we collect, use, and protect data for our direct Android APK download and app scheduler services.",
-  path: "/privacy",
-  keywords: pageKeywordGroups.privacy,
-});
+    "Appopener App Scheduler privacy policy. Learn how we collect, use, and protect your data. App scheduler, auto open apps, automatic app launcher.",
+  keywords: seoKeywords,
+};
 
 export default function PrivacyPage() {
   return (
@@ -72,7 +70,7 @@ export default function PrivacyPage() {
         <p>
           Depending on your location, you may have the right to access,
           correct, or delete your personal data. You can manage your account
-          settings or contact us at fahimahamedweb@gmail.com to exercise these
+          settings or contact us at support@appopener.app to exercise these
           rights.
         </p>
 
@@ -86,11 +84,71 @@ export default function PrivacyPage() {
         </p>
 
         <h2 style={{ marginTop: "28px", fontSize: "22px" }}>
+          Advertising
+        </h2>
+        <p>
+          We may display advertisements on our website through third-party
+          advertising networks, including Google AdSense. These networks may use
+          cookies, web beacons, and similar technologies to serve ads based on
+          your prior visits to our website or other websites. Google&apos;s use of
+          advertising cookies enables it and its partners to serve ads to you
+          based on your visit to our site and/or other sites on the internet.
+        </p>
+        <p>
+          You may opt out of personalized advertising by visiting{" "}
+          <a
+            href="https://www.google.com/settings/ads"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Google Ads Settings
+          </a>
+          . Alternatively, you can opt out of third-party vendor cookies by
+          visiting the{" "}
+          <a
+            href="https://optout.networkadvertising.org/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Network Advertising Initiative opt-out page
+          </a>
+          .
+        </p>
+
+        <h2 style={{ marginTop: "28px", fontSize: "22px" }}>
+          Third-Party Services
+        </h2>
+        <p>
+          We use Google Analytics to analyze website traffic and usage patterns.
+          Google Analytics uses cookies to collect anonymous information about
+          how visitors use our site. This data helps us improve our content and
+          user experience. You can learn more about how Google uses data at{" "}
+          <a
+            href="https://policies.google.com/technologies/partner-sites"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Google&apos;s Privacy &amp; Terms page
+          </a>
+          .
+        </p>
+
+        <h2 style={{ marginTop: "28px", fontSize: "22px" }}>
+          Changes to This Policy
+        </h2>
+        <p>
+          We may update this Privacy Policy from time to time. We will notify
+          you of any changes by posting the new Privacy Policy on this page
+          and updating the &quot;Last updated&quot; date. We encourage you to
+          review this Privacy Policy periodically for any changes.
+        </p>
+
+        <h2 style={{ marginTop: "28px", fontSize: "22px" }}>
           Contact Us
         </h2>
         <p>
           If you have questions about this Privacy Policy, please contact us at{" "}
-          <a href="mailto:fahimahamedweb@gmail.com">fahimahamedweb@gmail.com</a> or
+          <a href="mailto:support@appopener.app">support@appopener.app</a> or
           visit our <a href="/contact">Contact page</a>.
         </p>
       </div>
