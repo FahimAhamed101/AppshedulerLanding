@@ -2,15 +2,15 @@ import type { MetadataRoute } from "next";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: "App Scheduler – Auto Open & Close Apps | Productivity Tool",
+    name: "App Scheduler for Android | Auto Open Apps on Schedule",
     short_name: "App Scheduler",
     description:
-      "App Scheduler to auto open and close apps on schedule. Productivity tool—schedule tasks, open and close apps automatically, and stay on track with smart reminders.",
+      "Install Appopener from Google Play to schedule apps to open automatically on Android, get reminder alerts, and keep daily routines on track.",
     start_url: "/",
     scope: "/",
     display: "standalone",
-    background_color: "#ffffff",
-    theme_color: "#0d6efd",
+    background_color: "#07152f",
+    theme_color: "#10b981",
     categories: ["productivity", "business"],
     icons: [
       {

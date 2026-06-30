@@ -3,10 +3,13 @@
  */
 export const seoKeywords = [
   "app scheduler",
+  "app scheduler for android",
   "auto open apps",
   "automatic app launcher",
   "productivity android app",
   "schedule apps android",
+  "google play app scheduler",
+  "app scheduler google play",
   "task scheduling app",
   "app automation",
   "open apps automatically",

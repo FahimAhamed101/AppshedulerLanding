@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import PageLayout from "@/components/PageLayout";
 import { seoKeywords } from "@/lib/seo-keywords";
+import { googlePlayUrl, helloEmail, supportEmail } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Contact Us",
@@ -26,40 +28,42 @@ export default function ContactPage() {
           </h2>
           <p>
             General inquiries:{" "}
-            <a href="mailto:hello@appopener.app">hello@appopener.app</a>
+            <a href={`mailto:${helloEmail}`}>{helloEmail}</a>
           </p>
           <p>
-            Support:{" "}
-            <a href="mailto:support@appopener.app">support@appopener.app</a>
+            Support: <a href={`mailto:${supportEmail}`}>{supportEmail}</a>
           </p>
         </div>
 
         <div style={{ marginTop: "28px" }}>
           <h2 style={{ fontSize: "20px", marginBottom: "12px" }}>
-            <i className="fa fa-phone" style={{ marginRight: "10px" }} />
-            Phone
+            <i className="fa fa-android" style={{ marginRight: "10px" }} />
+            Google Play
           </h2>
           <p>
-            <a href="tel:+14155550172">+1 (415) 555-0172</a>
-          </p>
-          <p>
-            <a href="tel:+14155550199">+1 (415) 555-0199</a>
+            <a href={googlePlayUrl} target="_blank" rel="noopener noreferrer">
+              View the public Android app listing
+            </a>
           </p>
         </div>
 
         <div style={{ marginTop: "28px" }}>
           <h2 style={{ fontSize: "20px", marginBottom: "12px" }}>
-            <i className="fa fa-map-marker" style={{ marginRight: "10px" }} />
-            Office
+            <i className="fa fa-lightbulb-o" style={{ marginRight: "10px" }} />
+            Best topics to send
           </h2>
-          <p>500 Market Street, San Francisco, CA</p>
+          <p>
+            Ask about Android setup, routine planning, support issues, feature
+            requests, or partnership opportunities.
+          </p>
         </div>
 
         <div style={{ marginTop: "40px", padding: "24px", background: "#f8f9fa", borderRadius: "8px" }}>
           <h3 style={{ marginBottom: "16px" }}>Send us a message</h3>
           <p style={{ marginBottom: "16px" }}>
             You can also use the contact form on our{" "}
-            <a href="/#mu-contact">home page</a> to send a message directly.
+            <Link href="/#mu-contact">home page</Link> to send a message
+            directly.
           </p>
         </div>
       </div>

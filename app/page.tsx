@@ -1,18 +1,27 @@
 /* eslint-disable @next/next/no-img-element */
 import type { Metadata } from "next";
 import Script from "next/script";
+import styles from "./home.module.css";
 import { seoKeywords } from "@/lib/seo-keywords";
+import {
+  googlePlayUrl,
+  helloEmail,
+  siteBrandName,
+  siteUrl,
+  supportEmail,
+} from "@/lib/site";
 
-const siteUrl = "https://appopener.app";
-const siteName = "App Scheduler – Auto Open & Close Apps | Productivity Tool";
-const pageTitle = "App Scheduler – Auto Open & Close Apps | Productivity Tool";
+const pageTitle = "App Scheduler for Android | Auto Open Apps on Schedule";
 const pageDescription =
-  "App Scheduler to auto open and close apps on schedule. Productivity tool for teams and individuals—schedule tasks, automate reminders, and stay organized.";
+  "Install Appopener from Google Play to schedule apps to open automatically on Android, get reminder alerts, and stay focused with repeatable daily routines.";
 const ogImageUrl = `${siteUrl}/assets/images/1.png`;
+const playStoreAriaLabel = "Download Appopener from Google Play";
 const pageKeywords = [
   ...seoKeywords,
-  "team scheduling software",
-  "productivity dashboard",
+  "schedule apps to open automatically on android",
+  "android routine launcher",
+  "google play productivity app",
+  "automatic app opener android",
 ];
 
 const menuLinks = [
@@ -23,37 +32,118 @@ const menuLinks = [
   { href: "#mu-use-cases", label: "Use Cases" },
   { href: "#mu-video", label: "Demo" },
   { href: "#mu-apps-screenshot", label: "Screenshots" },
-  { href: "#mu-testimonials", label: "Testimonials" },
+  { href: "#mu-routines", label: "Routines" },
   { href: "#mu-faq", label: "FAQ" },
   { href: "/blog", label: "Blog" },
   { href: "#mu-download", label: "Download" },
   { href: "#mu-contact", label: "Contact" },
 ];
 
-const features = [
+const heroStats = [
+  { value: "Android", label: "Public release on Google Play" },
+  { value: "1 tap", label: "Start a saved routine fast" },
+  { value: "Daily", label: "Recurring app schedules and reminders" },
+];
+
+const overviewCards = [
   {
-    icon: "fa-calendar",
-    title: "Timeline Scheduler",
+    icon: "fa-clock-o",
+    title: "Time-based app launches",
     description:
-      "Drag, drop, and rebalance your tasks in seconds so your next action is always clear.",
-  },
-  {
-    icon: "fa-bolt",
-    title: "One-Tap Open",
-    description:
-      "Launch your most-used apps and workflows at the exact moment you planned them.",
+      "Build a routine once and let Appopener launch the apps you need at the right time on Android.",
   },
   {
     icon: "fa-bell-o",
-    title: "Smart Reminders",
+    title: "Reminder alerts before each block",
     description:
-      "Get context-aware reminders before important sessions, meetings, and deadlines.",
+      "Receive a notification before a task starts so you can move into work without scrambling for the right app.",
   },
   {
-    icon: "fa-users",
-    title: "Team Schedule Sharing",
+    icon: "fa-repeat",
+    title: "Repeatable routines for busy days",
     description:
-      "Share working blocks with your team and avoid collisions across projects and time zones.",
+      "Create recurring schedules for study sessions, shift handoffs, workout plans, or morning startup sequences.",
+  },
+];
+
+const features = [
+  {
+    icon: "fa-calendar",
+    title: "Visual schedule builder",
+    description:
+      "Set up focus blocks, recurring tasks, and fixed-time routines with a clear timeline that is easy to scan.",
+  },
+  {
+    icon: "fa-android",
+    title: "Automatic Android app opening",
+    description:
+      "Assign an app to each task so your calendar, notes, music, or work tools open when the session begins.",
+  },
+  {
+    icon: "fa-bell",
+    title: "Smart reminders",
+    description:
+      "Add reminder alerts before every task so you have enough lead time to switch context without losing momentum.",
+  },
+  {
+    icon: "fa-shield",
+    title: "Routine-first productivity",
+    description:
+      "Reduce decision fatigue by turning repeated work into structured Android routines that run the same way every day.",
+  },
+];
+
+const howItWorksSteps = [
+  {
+    title: "1. Create your routine",
+    description:
+      "Choose the times you want to work, study, exercise, or check in, then save them as a repeatable schedule.",
+  },
+  {
+    title: "2. Attach the right apps",
+    description:
+      "Link each block to the Android app you need so Appopener knows what to open when the block starts.",
+  },
+  {
+    title: "3. Let reminders keep you on track",
+    description:
+      "Get a heads-up before each session and move into the next task with less friction and less app hunting.",
+  },
+];
+
+const useCases = [
+  {
+    title: "Deep work routines",
+    description:
+      "Open your notes app, code editor, timer, and focus playlist at the start of every work sprint.",
+  },
+  {
+    title: "Study schedules",
+    description:
+      "Launch reading apps, flashcards, or class tools automatically for each study block throughout the week.",
+  },
+  {
+    title: "Shift and support workflows",
+    description:
+      "Start the same support, QA, or operations apps at shift handoff so every day begins with the right tools ready.",
+  },
+];
+
+const routineExamples = [
+  {
+    title: "Morning startup",
+    summary:
+      "Open your calendar, notes, and communication apps as soon as the workday begins.",
+  },
+  {
+    title: "Study sprint",
+    summary:
+      "Launch flashcards, reading apps, and a timer for each scheduled revision session.",
+  },
+  {
+    title: "Shift handoff",
+    summary:
+      "Bring up the same dashboard, ticket queue, and internal chat tools at the start of every shift.",
   },
 ];
 
@@ -63,124 +153,56 @@ const screenshots = [
   "/assets/images/screenshot/03.jpg",
   "/assets/images/screenshot/04.jpg",
   "/assets/images/screenshot/05.jpg",
-  "/assets/images/screenshot/01.jpg",
-  "/assets/images/screenshot/02.jpg",
-  "/assets/images/screenshot/03.jpg",
-  "/assets/images/screenshot/04.jpg",
-  "/assets/images/screenshot/05.jpg",
 ];
 
 const faqItems = [
   {
     id: "collapseOne",
-    question: "What is Appopener App Scheduler?",
+    question: "What does Appopener App Scheduler do on Android?",
     answer:
-      "Appopener is an app-first scheduler that helps you plan tasks and launch the right app at the right time from one timeline.",
+      "Appopener helps you create time-based routines on Android. You can schedule tasks, attach apps to each block, and open those apps when it is time to begin.",
   },
   {
     id: "collapseTwo",
-    question: "How quickly can I start?",
+    question: "Where can I download the app?",
     answer:
-      "Create an account, choose your primary apps, and import your calendar. Most users are fully set up in under five minutes.",
+      "The public install link on this landing page points only to the Google Play listing for Android.",
   },
   {
     id: "collapseThree",
-    question: "Is there a free plan?",
+    question: "Can I schedule apps to open automatically?",
     answer:
-      "Yes. Appopener includes a free plan for personal scheduling, plus premium plans for advanced automation and team coordination.",
+      "Yes. Set a time, assign the Android app you want for that task, and Appopener handles the launch flow for your saved routine.",
   },
   {
     id: "collapseFour",
-    question: "Can my team share schedules safely?",
+    question: "Can I make recurring routines?",
     answer:
-      "Team workspaces support role-based access, private events, and secure sharing controls for each schedule.",
+      "Yes. You can build repeatable daily or weekly schedules for work, study, operations, or personal routines.",
   },
   {
     id: "collapseFive",
-    question: "Where can I get support?",
+    question: "Does Appopener send reminders too?",
     answer:
-      "Reach out through the contact form, in-app chat, or email support for fast onboarding and technical help.",
+      "Yes. Reminder alerts help you prepare before a block starts, which is useful for meetings, deep work, and time-boxed tasks.",
   },
   {
     id: "collapseSix",
-    question: "Which platforms does Appopener support?",
+    question: "Is there an Apple App Store link on this page?",
     answer:
-      "Appopener works on Web, iOS, Android, Windows, and macOS. Your schedule syncs across devices so you can switch between phone, tablet, and desktop seamlessly.",
+      "No. The landing page only provides the Google Play link for Android and does not show an Apple App Store download button.",
   },
   {
     id: "collapseSeven",
-    question: "Can I schedule apps to open automatically on Android?",
+    question: "Who is the app best for?",
     answer:
-      "Yes. Appopener lets you schedule app launches on Android at specific times. Set up your timeline, assign apps to tasks, and they will open when it's time to work.",
+      "It is useful for anyone who repeats the same digital routine often, including students, remote workers, creators, support teams, and operators.",
   },
   {
     id: "collapseEight",
-    question: "How does app automation work?",
+    question: "How can I contact support?",
     answer:
-      "Appopener uses system-level scheduling to trigger app launches at predefined times. You create a schedule, link each task to the app you need, and the app opens automatically when the task starts.",
-  },
-  {
-    id: "collapseNine",
-    question: "Is my data secure?",
-    answer:
-      "Yes. We use encryption and follow security best practices. Your schedule and preferences stay private. See our Privacy Policy for full details.",
-  },
-];
-
-const howItWorksSteps = [
-  {
-    title: "1. Plan Your Timeline",
-    description:
-      "Create a schedule for meetings, focus blocks, and recurring tasks in one calendar view.",
-  },
-  {
-    title: "2. Connect Your App Workflow",
-    description:
-      "Set the apps you want to open for each task so your tools launch when work starts.",
-  },
-  {
-    title: "3. Run On-Time With Reminders",
-    description:
-      "Receive reminder alerts before every session and keep projects moving without missed deadlines.",
-  },
-];
-
-const useCases = [
-  {
-    title: "App Scheduler For Teams",
-    description:
-      "Coordinate standups, release windows, and client calls with shared timelines and reminders across your team.",
-  },
-  {
-    title: "Task Scheduling For Solo Work",
-    description:
-      "Plan deep work sessions, auto-open your tools, and keep a daily routine without context switching.",
-  },
-  {
-    title: "Workflow Automation For Operations",
-    description:
-      "Trigger repeatable app-opening schedules for support, QA, and operations workflows that run every day.",
-  },
-];
-
-const testimonials = [
-  {
-    name: "Sarah M.",
-    role: "Product Manager",
-    quote:
-      "Appopener cut my morning setup time in half. My calendar, notes, and Slack open right when I need them. Game changer for remote work.",
-  },
-  {
-    name: "James K.",
-    role: "Freelance Developer",
-    quote:
-      "I use it to block focus time and auto-open my code editor. No more wondering which app to open—it just happens. My productivity jumped.",
-  },
-  {
-    name: "Lisa T.",
-    role: "Support Team Lead",
-    quote:
-      "We schedule our support tool and ticket queue to open at shift start. Everyone stays aligned. Highly recommend for ops teams.",
+      `Email ${supportEmail} for support or ${helloEmail} for general questions, onboarding, and partnership requests.`,
   },
 ];
 
@@ -194,25 +216,23 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     url: siteUrl,
-    siteName,
+    siteName: siteBrandName,
     title: pageTitle,
-    description:
-      "Plan tasks, automate reminders, and launch your tools in one scheduler built for fast teams.",
+    description: pageDescription,
     locale: "en_US",
     images: [
       {
         url: ogImageUrl,
         width: 1200,
         height: 630,
-        alt: "App Scheduler – Auto Open & Close Apps dashboard preview",
+        alt: "App Scheduler for Android dashboard preview",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
     title: pageTitle,
-    description:
-      "Schedule tasks, open apps on time, and keep your workday organized.",
+    description: pageDescription,
     images: [ogImageUrl],
   },
   robots: {
@@ -233,16 +253,17 @@ const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
   "@id": `${siteUrl}/#organization`,
-  name: siteName,
+  name: siteBrandName,
   url: siteUrl,
   logo: `${siteUrl}/assets/images/logo.png`,
+  email: supportEmail,
+  sameAs: [googlePlayUrl],
   contactPoint: [
     {
       "@type": "ContactPoint",
       contactType: "customer support",
-      telephone: "+1-415-555-0172",
-      email: "support@appopener.app",
-      areaServed: "US",
+      email: supportEmail,
+      areaServed: "Worldwide",
       availableLanguage: ["en"],
     },
   ],
@@ -253,7 +274,7 @@ const websiteSchema = {
   "@type": "WebSite",
   "@id": `${siteUrl}/#website`,
   url: siteUrl,
-  name: siteName,
+  name: siteBrandName,
   description: pageDescription,
   inLanguage: "en-US",
   publisher: {
@@ -285,15 +306,16 @@ const softwareSchema = {
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
   "@id": `${siteUrl}/#software`,
-  name: siteName,
-  applicationCategory: "BusinessApplication",
-  operatingSystem: "Web, iOS, Android, Windows, macOS",
+  name: `${siteBrandName} App Scheduler`,
+  applicationCategory: "ProductivityApplication",
+  operatingSystem: "Android",
   description: pageDescription,
   keywords: pageKeywords.join(", "),
   featureList: features.map((feature) => feature.title),
   url: siteUrl,
   image: ogImageUrl,
-  softwareVersion: "1.0",
+  downloadUrl: googlePlayUrl,
+  installUrl: googlePlayUrl,
   inLanguage: "en-US",
   publisher: {
     "@id": `${siteUrl}/#organization`,
@@ -302,7 +324,7 @@ const softwareSchema = {
     "@type": "Offer",
     price: "0",
     priceCurrency: "USD",
-    url: siteUrl,
+    url: googlePlayUrl,
   },
 };
 
@@ -322,56 +344,74 @@ const faqSchema = {
 export default function Home() {
   return (
     <>
-      <header id="mu-header" role="banner">
-        <div className="mu-header-overlay">
+      <header id="mu-header" className={styles.heroHeader} role="banner">
+        <div className={`mu-header-overlay ${styles.heroOverlay}`}>
           <div className="container">
             <div className="mu-header-area">
               <div className="mu-logo-area">
                 <a className="mu-logo" href="#mu-header">
-                  Appopener
+                  {siteBrandName}
                 </a>
               </div>
 
-              <div className="mu-header-featured-area">
-                <div className="mu-header-featured-img">
-                  <img
-                    src="/assets/images/1.png"
-                    alt="App Scheduler – Auto Open & Close Apps dashboard preview"
-                    fetchPriority="high"
-                  />
-                </div>
-
-                <div className="mu-header-featured-content">
-                  <p className="mu-kicker">App Scheduler – Auto Open & Close Apps | Productivity Tool</p>
+              <div className={`mu-header-featured-area ${styles.heroGrid}`}>
+                <div className={`mu-header-featured-content ${styles.heroCopy}`}>
+                  <p className={styles.heroKicker}>Android app scheduling from Google Play</p>
                   <h1>
-                    App Scheduler To Open Your Apps <span>Anytime</span>
+                    Schedule apps to open on time on <span>Android</span>
                   </h1>
-                  <p>
-                    Schedule launches, automate reminders, and keep your
-                    workflow organized in one clean dashboard made for fast
-                    teams.
+                  <p className={styles.heroLead}>
+                    Appopener helps you schedule apps to open automatically on
+                    Android, send reminder alerts before each block, and turn
+                    repeated tasks into clean daily routines.
                   </p>
 
-                  <div className="mu-app-download-area">
-                    <h4>Get Appopener Today</h4>
+                  <div className={styles.heroActions}>
                     <a
-                      className="mu-apple-btn"
-                      href="#mu-download"
-                      aria-label="View iOS download options"
-                    >
-                      <i className="fa fa-apple" />
-                      <span>app store</span>
-                    </a>
-                    <a
-                      className="mu-google-btn"
-                      href="https://play.google.com/store/apps/details?id=com.tomtech.appscheduler&pcampaignid=web_share"
+                      className={`mu-google-btn ${styles.playButton}`}
+                      href={googlePlayUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      aria-label="Download from Google Play Store"
+                      aria-label={playStoreAriaLabel}
                     >
                       <i className="fa fa-android" />
                       <span>google play</span>
                     </a>
+                    <a className={styles.secondaryLink} href="#mu-feature">
+                      Explore features
+                    </a>
+                  </div>
+
+                  <p className={styles.availabilityNote}>
+                    The only public install link on this page is the Google Play
+                    listing.
+                  </p>
+
+                  <div className={styles.statGrid}>
+                    {heroStats.map((stat) => (
+                      <div className={styles.statCard} key={stat.label}>
+                        <strong>{stat.value}</strong>
+                        <span>{stat.label}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                <div className={`mu-header-featured-img ${styles.heroVisualWrap}`}>
+                  <div className={styles.heroGlow} />
+                  <img
+                    className={styles.heroVisual}
+                    src="/assets/images/1.png"
+                    alt="App Scheduler for Android dashboard preview"
+                    fetchPriority="high"
+                  />
+                  <div className={styles.floatingCard}>
+                    <p className={styles.floatingCardLabel}>Routine example</p>
+                    <h2>8:30 AM startup</h2>
+                    <p>
+                      Calendar, notes, and task apps open automatically at the
+                      start of the day.
+                    </p>
                   </div>
                 </div>
               </div>
@@ -406,49 +446,54 @@ export default function Home() {
       </div>
 
       <main role="main">
-        <section id="mu-overview" className="mu-feature-area" style={{ padding: "60px 0", background: "#f8fafc" }}>
+        <section id="mu-overview" className={styles.lightSection}>
           <div className="container">
-            <div className="row">
-              <div className="col-md-12">
-                <div className="mu-title-area">
-                  <h2 className="mu-title">App Overview</h2>
-                  <span className="mu-title-dot" />
-                </div>
-                <div style={{ maxWidth: "800px", lineHeight: 1.8 }}>
-                  <h3 style={{ fontSize: "20px", marginTop: "24px" }}>What the App Does</h3>
-                  <p>
-                    Appopener App Scheduler is a productivity tool that lets you plan tasks on a timeline, assign apps to each task, and automatically open those apps when it&apos;s time to work. Instead of manually switching between apps or forgetting what to do next, you set up your schedule once and let the app handle the rest. Whether you need to open your calendar at 9 AM, your code editor during a focus block, or your support dashboard at shift start, Appopener launches the right app at the right moment.
-                  </p>
-                  <p>
-                    The app combines a visual timeline scheduler with smart reminders and team schedule sharing. You can create recurring tasks, block out focus time, and sync with your existing calendar. When a task is about to start, you get a reminder notification, and when it starts, the linked app opens automatically. This reduces context switching, keeps you on track, and makes your workflow predictable.
-                  </p>
+            <div className="mu-title-area">
+              <h2 className="mu-title">Android App Scheduler Overview</h2>
+              <span className="mu-title-dot" />
+              <p className={styles.sectionLead}>
+                Appopener is an Android productivity app built for people who
+                repeat the same digital routine every day and want their apps
+                ready at the exact moment work starts.
+              </p>
+            </div>
 
-                  <h3 style={{ fontSize: "20px", marginTop: "24px" }}>Who It Is For</h3>
-                  <p>
-                    Appopener is built for individuals and teams who want to stay organized without constant manual effort. Solo professionals—freelancers, consultants, and remote workers—use it to structure their day and avoid decision fatigue about which app to open next. Small teams and operations groups use it to align schedules, coordinate standups and releases, and ensure everyone opens the right tools at the right time. Support and QA teams run repeatable workflows where specific apps open at shift start or before handoffs.
-                  </p>
-                  <p>
-                    If you juggle multiple apps, struggle with context switching, or want a simpler way to run time-based workflows, Appopener is designed for you. It works across Web, iOS, Android, Windows, and macOS, so you can stay consistent whether you&apos;re at a desk or on the go.
-                  </p>
+            <div className={styles.overviewGrid}>
+              {overviewCards.map((item) => (
+                <article className={styles.overviewCard} key={item.title}>
+                  <div className={styles.cardIcon}>
+                    <i className={`fa ${item.icon}`} aria-hidden="true" />
+                  </div>
+                  <h3>{item.title}</h3>
+                  <p>{item.description}</p>
+                </article>
+              ))}
+            </div>
 
-                  <h3 style={{ fontSize: "20px", marginTop: "24px" }}>Key Benefits</h3>
-                  <p>
-                    <strong>Save time:</strong> No more opening apps manually or losing focus deciding what to do next. Your tools open when you need them.
-                  </p>
-                  <p>
-                    <strong>Stay consistent:</strong> Recurring schedules and reminders help you build routines. Morning check-in, focus blocks, and end-of-day wrap-up happen on schedule.
-                  </p>
-                  <p>
-                    <strong>Reduce context switching:</strong> By opening the right app for each task, you spend less time hopping between tools and more time in flow.
-                  </p>
-                  <p>
-                    <strong>Collaborate better:</strong> Team schedule sharing lets you see when colleagues are busy, avoid conflicts, and align on shared timelines.
-                  </p>
-                  <p>
-                    <strong>Automate workflows:</strong> For operations, support, and QA, Appopener can trigger the same app-opening sequence every day, reducing setup errors and keeping processes reliable.
-                  </p>
-                </div>
-              </div>
+            <div className={styles.proseBlock}>
+              <h3>What the app does</h3>
+              <p>
+                Appopener lets you build a routine, attach the apps you need,
+                and schedule those apps to open automatically on Android.
+                Instead of manually opening the same tools for every focus
+                block, class, meeting, or shift, you save the flow once and use
+                it again whenever the schedule repeats.
+              </p>
+              <h3>Who it is for</h3>
+              <p>
+                The app works well for students, freelancers, remote workers,
+                creators, support teams, and anyone who wants a cleaner way to
+                move between tasks. If your day depends on opening the right app
+                at the right time, an Android app scheduler can remove a lot of
+                repetitive setup.
+              </p>
+              <h3>Why it helps</h3>
+              <p>
+                Fewer manual steps means less context switching. Reminder alerts
+                reduce missed starts, and recurring routines keep your workday
+                consistent. That is the core benefit of using an app scheduler
+                from Google Play instead of relying on memory alone.
+              </p>
             </div>
           </div>
         </section>
@@ -459,12 +504,12 @@ export default function Home() {
               <div className="col-md-12">
                 <div className="mu-feature-area">
                   <div className="mu-title-area">
-                    <h2 className="mu-title">Built For Smart Scheduling</h2>
+                    <h2 className="mu-title">Built for predictable Android routines</h2>
                     <span className="mu-title-dot" />
-                    <p>
-                      Appopener keeps your day predictable with clear priorities,
-                      instant app access, and focused scheduling tools for
-                      individuals and teams.
+                    <p className={styles.sectionLead}>
+                      The landing page now focuses on a single install path and
+                      a single promise: schedule your Android apps, stay on
+                      time, and cut the friction out of repeated tasks.
                     </p>
                   </div>
 
@@ -473,20 +518,24 @@ export default function Home() {
                       <div className="col-md-6">
                         <div className="mu-feature-content-left">
                           <img
-                            className="mu-profile-img"
+                            className={`mu-profile-img ${styles.featurePreview}`}
                             src="/assets/images/iphone-group.png"
-                            alt="Appopener feature preview on mobile screens"
+                            alt="Appopener mobile feature preview"
                             loading="lazy"
                             decoding="async"
                           />
                         </div>
                       </div>
                       <div className="col-md-6">
-                        <div className="mu-feature-content-right">
+                        <div className={`${styles.featureList} mu-feature-content-right`}>
                           {features.map((feature) => (
                             <div className="media" key={feature.title}>
                               <div className="media-left">
-                                <button className="btn mu-feature-btn" type="button" aria-label={feature.title}>
+                                <button
+                                  className="btn mu-feature-btn"
+                                  type="button"
+                                  aria-label={feature.title}
+                                >
                                   <i className={`fa ${feature.icon}`} aria-hidden="true" />
                                 </button>
                               </div>
@@ -506,71 +555,70 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="mu-how-it-works">
+        <section id="mu-how-it-works" className={styles.lightSection}>
           <div className="container">
-            <div className="row">
-              <div className="col-md-12">
-                <div className="mu-feature-area">
-                  <div className="mu-title-area">
-                    <h2 className="mu-title">How to Use the App</h2>
-                    <span className="mu-title-dot" />
-                    <p>
-                      Follow this step-by-step guide to get the most out of Appopener. We&apos;ve included tips and examples to help you succeed.
-                    </p>
-                  </div>
+            <div className="mu-title-area">
+              <h2 className="mu-title">How the app works</h2>
+              <span className="mu-title-dot" />
+              <p className={styles.sectionLead}>
+                Setup stays simple: define the schedule, assign the Android
+                apps, and let reminders plus launch actions handle the rest.
+              </p>
+            </div>
 
-                  <div className="row">
-                    {howItWorksSteps.map((step) => (
-                      <div className="col-md-4" key={step.title}>
-                        <div className="mu-contact-right-single">
-                          <h3 className="media-heading">{step.title}</h3>
-                          <p>{step.description}</p>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                  <div style={{ marginTop: "40px", padding: "24px", background: "#f8fafc", borderRadius: "12px" }}>
-                    <h3 style={{ marginBottom: "16px" }}>Tips and Examples</h3>
-                    <ul style={{ marginBottom: 0 }}>
-                      <li><strong>Morning routine:</strong> Schedule your calendar, email, and task app to open at 8:30 AM so you start the day with context.</li>
-                      <li><strong>Focus blocks:</strong> Set a 2-hour block and link your code editor or writing app. When the block starts, the app opens automatically.</li>
-                      <li><strong>Standup prep:</strong> Open your project tool and Slack 5 minutes before standup. No more scrambling to find the right tab.</li>
-                      <li><strong>End-of-day wrap-up:</strong> Schedule a 15-minute block with your notes app and task manager to capture what you accomplished.</li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
+            <div className={styles.stepGrid}>
+              {howItWorksSteps.map((step) => (
+                <article className={styles.stepCard} key={step.title}>
+                  <h3>{step.title}</h3>
+                  <p>{step.description}</p>
+                </article>
+              ))}
+            </div>
+
+            <div className={styles.tipsPanel}>
+              <h3>Routine ideas you can set up quickly</h3>
+              <ul>
+                <li>
+                  <strong>Morning planning:</strong> Open your calendar, task
+                  manager, and notes app before the workday starts.
+                </li>
+                <li>
+                  <strong>Focus blocks:</strong> Launch a timer, writing app, or
+                  code editor right when a deep work session begins.
+                </li>
+                <li>
+                  <strong>Study sessions:</strong> Bring up reading, flashcard,
+                  and class tools for each scheduled revision block.
+                </li>
+                <li>
+                  <strong>Shift handoffs:</strong> Start the same support or QA
+                  apps on time for every team handoff.
+                </li>
+              </ul>
             </div>
           </div>
         </section>
 
         <section id="mu-use-cases">
           <div className="container">
-            <div className="row">
-              <div className="col-md-12">
-                <div className="mu-feature-area">
-                  <div className="mu-title-area">
-                    <h2 className="mu-title">Best App Scheduler Use Cases</h2>
-                    <span className="mu-title-dot" />
-                    <p>
-                      Appopener combines task scheduling, app opening automation,
-                      and smart reminders to keep teams and individuals on
-                      schedule.
-                    </p>
-                  </div>
+            <div className="mu-title-area">
+              <h2 className="mu-title">Best use cases for App Scheduler</h2>
+              <span className="mu-title-dot" />
+              <p className={styles.sectionLead}>
+                The strongest fit is any workflow where the same Android apps
+                need to open on a repeatable schedule.
+              </p>
+            </div>
 
-                  <div className="row">
-                    {useCases.map((useCase) => (
-                      <div className="col-md-4" key={useCase.title}>
-                        <div className="mu-contact-right-single">
-                          <h3 className="media-heading">{useCase.title}</h3>
-                          <p>{useCase.description}</p>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
+            <div className="row">
+              {useCases.map((useCase) => (
+                <div className="col-md-4" key={useCase.title}>
+                  <article className={styles.useCaseCard}>
+                    <h3>{useCase.title}</h3>
+                    <p>{useCase.description}</p>
+                  </article>
                 </div>
-              </div>
+              ))}
             </div>
           </div>
         </section>
@@ -581,8 +629,10 @@ export default function Home() {
               <div className="row">
                 <div className="col-md-12">
                   <div className="mu-video-area">
-                    <h2>See Appopener In Action</h2>
-                    <p>Watch how fast it is to schedule, open, and run your day.</p>
+                    <h2>See Appopener in action</h2>
+                    <p>
+                      Watch the Android app scheduler flow from setup to launch.
+                    </p>
                     <a className="mu-video-play-btn" href="#" aria-label="Play demo video">
                       <i className="fa fa-play" aria-hidden="true" />
                     </a>
@@ -604,23 +654,23 @@ export default function Home() {
                 src="https://www.youtube.com/embed/9r40_ffCZ_I"
                 frameBorder="0"
                 allowFullScreen
-                title="App Scheduler – Auto Open & Close Apps demo video"
+                title="App Scheduler for Android demo video"
               />
             </div>
           </div>
         </section>
 
-        <section id="mu-apps-screenshot">
+        <section id="mu-apps-screenshot" className={styles.lightSection}>
           <div className="container">
             <div className="row">
               <div className="col-md-12">
                 <div className="mu-apps-screenshot-area">
                   <div className="mu-title-area">
-                    <h2 className="mu-title">Appopener Screens</h2>
+                    <h2 className="mu-title">App screens</h2>
                     <span className="mu-title-dot" />
-                    <p>
-                      Preview your dashboard, reminders, and timeline views
-                      designed for high-speed planning.
+                    <p className={styles.sectionLead}>
+                      Preview the scheduler, reminders, and app-launch setup
+                      screens before you install from Google Play.
                     </p>
                   </div>
 
@@ -630,7 +680,7 @@ export default function Home() {
                         <div className="mu-single-screeshot" key={`${image}-${index}`}>
                           <img
                             src={image}
-                            alt={`Appopener app screenshot ${index + 1}`}
+                            alt={`App Scheduler screenshot ${index + 1}`}
                             loading="lazy"
                             decoding="async"
                           />
@@ -644,92 +694,62 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="mu-download">
+        <section id="mu-routines">
           <div className="container">
-            <div className="row">
-              <div className="col-md-12">
-                <div className="mu-download-area">
-                  <div className="mu-title-area">
-                    <h2 className="mu-title">Open The App Anytime</h2>
-                    <span className="mu-title-dot" />
-                    <p>
-                      Use Appopener on mobile or desktop and keep your schedule
-                      available whenever work starts.
-                    </p>
-                  </div>
+            <div className="mu-title-area">
+              <h2 className="mu-title">Popular routine ideas</h2>
+              <span className="mu-title-dot" />
+              <p className={styles.sectionLead}>
+                These are the kinds of repeated flows an Android app scheduler
+                handles well when you want less setup and more consistency.
+              </p>
+            </div>
 
-                  <div className="mu-download-content">
-                    <a
-                      className="mu-apple-btn"
-                      href="#mu-contact"
-                      aria-label="Contact Appopener for iOS app access"
-                    >
-                      <i className="fa fa-apple" />
-                      <span>app store</span>
-                    </a>
-                    <a
-                      className="mu-google-btn"
-                      href="https://play.google.com/store/apps/details?id=com.tomtech.appscheduler&pcampaignid=web_share"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      aria-label="Download from Google Play Store"
-                    >
-                      <i className="fa fa-android" />
-                      <span>google play</span>
-                    </a>
-                    <a
-                      className="mu-windows-btn"
-                      href="#mu-contact"
-                      aria-label="Contact Appopener for desktop app access"
-                    >
-                      <i className="fa fa-windows" />
-                      <span>desktop app</span>
-                    </a>
-                  </div>
-                </div>
+            <div className={styles.routineGrid}>
+              {routineExamples.map((routine) => (
+                <article className={styles.routineCard} key={routine.title}>
+                  <h3>{routine.title}</h3>
+                  <p>{routine.summary}</p>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section id="mu-download" className={styles.downloadSection}>
+          <div className="container">
+            <div className="mu-download-area">
+              <div className="mu-title-area">
+                <h2 className="mu-title">Install from Google Play</h2>
+                <span className="mu-title-dot" />
+                <p>
+                  This landing page now exposes one clear install path so users
+                  and search engines both understand where to download the app.
+                </p>
+              </div>
+
+              <div className={styles.downloadPanel}>
+                <p>
+                  Appopener is publicly linked here through Google Play only.
+                  The Apple App Store button and other download buttons have
+                  been removed.
+                </p>
+                <a
+                  className={`mu-google-btn ${styles.playButton} ${styles.downloadButton}`}
+                  href={googlePlayUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={playStoreAriaLabel}
+                >
+                  <i className="fa fa-android" />
+                  <span>google play</span>
+                </a>
               </div>
             </div>
           </div>
         </section>
 
-        <section id="mu-testimonials" style={{ padding: "60px 0", background: "#f8fafc" }}>
-          <div className="container">
-            <div className="row">
-              <div className="col-md-12">
-                <div className="mu-title-area">
-                  <h2 className="mu-title">What Users Say</h2>
-                  <span className="mu-title-dot" />
-                  <p>
-                    Teams and individuals use Appopener to stay on schedule and reduce app-switching friction.
-                  </p>
-                </div>
-                <div className="row">
-                  {testimonials.map((t) => (
-                    <div className="col-md-4" key={t.name}>
-                      <div
-                        style={{
-                          background: "#fff",
-                          padding: "24px",
-                          borderRadius: "12px",
-                          boxShadow: "0 4px 16px rgba(0,0,0,0.06)",
-                          height: "100%",
-                        }}
-                      >
-                        <p style={{ fontStyle: "italic", marginBottom: "16px", lineHeight: 1.6 }}>
-                          &quot;{t.quote}&quot;
-                        </p>
-                        <p style={{ margin: 0, fontWeight: 600 }}>{t.name}</p>
-                        <p style={{ margin: 0, fontSize: "14px", color: "#666" }}>{t.role}</p>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section id="mu-faq">
+        <section id="mu-faq" className={styles.lightSection}>
           <div className="container">
             <div className="row">
               <div className="col-md-12">
@@ -737,6 +757,11 @@ export default function Home() {
                   <div className="mu-title-area">
                     <h2 className="mu-title">FAQ</h2>
                     <span className="mu-title-dot" />
+                    <p className={styles.sectionLead}>
+                      Short answers for users searching for an Android app
+                      scheduler, Google Play install details, and app automation
+                      basics.
+                    </p>
                   </div>
 
                   <div className="mu-faq-content">
@@ -781,11 +806,11 @@ export default function Home() {
               <div className="col-md-12">
                 <div className="mu-contact-area">
                   <div className="mu-title-area">
-                    <h2 className="mu-heading-title">Talk To The Appopener Team</h2>
+                    <h2 className="mu-heading-title">Contact the Appopener team</h2>
                     <span className="mu-title-dot" />
-                    <p>
-                      Need a custom setup for your company? Send us a message
-                      and we will help you launch quickly.
+                    <p className={styles.sectionLead}>
+                      Use the form for onboarding, setup questions, business
+                      requests, or support related to the Android app.
                     </p>
                   </div>
 
@@ -814,7 +839,7 @@ export default function Home() {
                               <input
                                 type="email"
                                 className="form-control"
-                                placeholder="Work Email"
+                                placeholder="Email Address"
                                 id="email"
                                 name="email"
                                 required
@@ -830,73 +855,54 @@ export default function Home() {
                               />
                             </div>
                             <button type="submit" className="mu-send-msg-btn">
-                              <span>SEND</span>
+                              <span>Send</span>
                             </button>
                           </form>
                         </div>
                       </div>
 
                       <div className="col-md-5">
-                        <div className="mu-contact-right">
-                          <div className="mu-contact-right-single">
-                            <div className="mu-icon">
-                              <i className="fa fa-map-marker" />
-                            </div>
-                            <p>
-                              <strong>Office</strong>
-                            </p>
-                            <p>500 Market Street, San Francisco, CA</p>
-                          </div>
-
-                          <div className="mu-contact-right-single">
-                            <div className="mu-icon">
-                              <i className="fa fa-phone" />
-                            </div>
-                            <p>
-                              <strong>Phone</strong>
-                            </p>
-                            <p>
-                              <a href="tel:+14155550172">+1 (415) 555-0172</a>
-                            </p>
-                            <p>
-                              <a href="tel:+14155550199">+1 (415) 555-0199</a>
-                            </p>
-                          </div>
-
-                          <div className="mu-contact-right-single">
-                            <div className="mu-icon">
+                        <div className={styles.contactColumn}>
+                          <article className={styles.contactCard}>
+                            <div className={styles.contactIcon}>
                               <i className="fa fa-envelope" />
                             </div>
+                            <h3>Email</h3>
                             <p>
-                              <strong>Email</strong>
+                              <a href={`mailto:${helloEmail}`}>{helloEmail}</a>
                             </p>
                             <p>
-                              <a href="mailto:hello@appopener.app">hello@appopener.app</a>
+                              <a href={`mailto:${supportEmail}`}>{supportEmail}</a>
                             </p>
-                            <p>
-                              <a href="mailto:support@appopener.app">support@appopener.app</a>
-                            </p>
-                          </div>
+                          </article>
 
-                          <div className="mu-contact-right-single">
-                            <div className="mu-social-media">
-                              <a href={siteUrl} aria-label="Appopener home page on Facebook">
-                                <i className="fa fa-facebook" />
-                              </a>
-                              <a href={siteUrl} aria-label="Appopener home page on Twitter">
-                                <i className="fa fa-twitter" />
-                              </a>
-                              <a href={siteUrl} aria-label="Appopener home page on Google Plus">
-                                <i className="fa fa-google-plus" />
-                              </a>
-                              <a href={siteUrl} aria-label="Appopener home page on LinkedIn">
-                                <i className="fa fa-linkedin" />
-                              </a>
-                              <a href={siteUrl} aria-label="Appopener home page on YouTube">
-                                <i className="fa fa-youtube" />
-                              </a>
+                          <article className={styles.contactCard}>
+                            <div className={styles.contactIcon}>
+                              <i className="fa fa-android" />
                             </div>
-                          </div>
+                            <h3>Public install</h3>
+                            <p>
+                              <a
+                                href={googlePlayUrl}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                              >
+                                View the Google Play listing
+                              </a>
+                            </p>
+                          </article>
+
+                          <article className={styles.contactCard}>
+                            <div className={styles.contactIcon}>
+                              <i className="fa fa-lightbulb-o" />
+                            </div>
+                            <h3>Best topics to send</h3>
+                            <p>
+                              Android setup questions, routine planning help,
+                              feature requests, partnership inquiries, and store
+                              listing feedback.
+                            </p>
+                          </article>
                         </div>
                       </div>
                     </div>
@@ -911,29 +917,22 @@ export default function Home() {
       <footer id="mu-footer" role="contentinfo">
         <div className="container">
           <div className="mu-footer-area">
-            <div
-              style={{
-                display: "flex",
-                flexWrap: "wrap",
-                justifyContent: "space-between",
-                alignItems: "center",
-                gap: "16px",
-              }}
-            >
+            <div className={styles.footerRow}>
               <p className="mu-copy-right">
-                &copy; {new Date().getFullYear()} <a href={siteUrl}>{siteName}</a>. All rights reserved.
+                &copy; {new Date().getFullYear()}{" "}
+                <a href={siteUrl}>{siteBrandName}</a>. All rights reserved.
               </p>
               <nav aria-label="Footer links">
-                <a href="/privacy" style={{ marginRight: "20px", color: "#d6e7ff" }}>
+                <a href="/privacy" className={styles.footerLink}>
                   Privacy Policy
                 </a>
-                <a href="/about" style={{ marginRight: "20px", color: "#d6e7ff" }}>
+                <a href="/about" className={styles.footerLink}>
                   About Us
                 </a>
-                <a href="/contact" style={{ marginRight: "20px", color: "#d6e7ff" }}>
+                <a href="/contact" className={styles.footerLink}>
                   Contact
                 </a>
-                <a href="/terms" style={{ color: "#d6e7ff" }}>
+                <a href="/terms" className={styles.footerLink}>
                   Terms of Service
                 </a>
               </nav>

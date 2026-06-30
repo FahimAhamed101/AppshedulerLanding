@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+:root {
+  color-scheme: light;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -8,4 +12,19 @@ html,
 body {
   margin: 0;
   padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #f4f7fb;
+  color: #12213f;
+  font-family: "Plus Jakarta Sans", "Segoe UI", sans-serif;
+}
+
+::selection {
+  background: rgba(16, 185, 129, 0.22);
+  color: #051634;
 }

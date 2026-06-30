@@ -2,8 +2,6 @@
 
 import Link from "next/link";
 
-const siteUrl = "https://appopener.app";
-
 const menuLinks = [
   { href: "/", label: "Home" },
   { href: "/#mu-feature", label: "Features" },
