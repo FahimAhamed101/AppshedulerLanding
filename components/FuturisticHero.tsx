@@ -1,4 +1,5 @@
 "use client";
+/* eslint-disable @next/next/no-img-element */
 
 import { useState, useEffect } from "react";
 import GooglePlayButton from "./GooglePlayButton";
@@ -193,91 +194,138 @@ export default function FuturisticHero() {
                     </span>
                   </div>
 
-                  {/* Interactive App Preset Selector */}
-                  <div className="mb-4">
-                    <p className="text-[11px] font-semibold text-slate-400 uppercase tracking-wider mb-2">
-                      Select Demo Target App:
-                    </p>
-                    <div className="grid grid-cols-2 gap-1.5">
-                      {(
-                        [
-                          { id: "fiverr", label: "Fiverr Booster", emoji: "🟢" },
-                          { id: "binance", label: "Binance Crypto", emoji: "📈" },
-                          { id: "duolingo", label: "Habit Streaks", emoji: "🦉" },
-                          { id: "notion", label: "Work Sprints", emoji: "📝" },
-                        ] as const
-                      ).map((tab) => (
-                        <button
-                          key={tab.id}
-                          type="button"
-                          onClick={() => setActiveApp(tab.id)}
-                          className={`flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg text-xs font-bold transition-all text-left ${
-                            activeApp === tab.id
-                              ? "bg-emerald-500/20 border border-emerald-400/60 text-white shadow-sm"
-                              : "bg-slate-900 border border-slate-800 text-slate-400 hover:text-slate-200"
-                          }`}
-                        >
-                          <span>{tab.emoji}</span>
-                          <span className="truncate">{tab.label}</span>
-                        </button>
-                      ))}
-                    </div>
+                  {/* Mode Toggle: Real App vs Live Simulator */}
+                  <div className="flex items-center p-1 rounded-xl bg-slate-950 border border-slate-800 mb-4">
+                    <button
+                      type="button"
+                      onClick={() => setActiveApp("fiverr")}
+                      className={`flex-1 py-1.5 rounded-lg text-xs font-bold transition-all text-center ${
+                        activeApp === "fiverr"
+                          ? "bg-emerald-500/20 text-emerald-300 border border-emerald-500/40"
+                          : "text-slate-400 hover:text-white"
+                      }`}
+                    >
+                      📱 Real App UI
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => setActiveApp("binance")}
+                      className={`flex-1 py-1.5 rounded-lg text-xs font-bold transition-all text-center ${
+                        activeApp !== "fiverr"
+                          ? "bg-cyan-500/20 text-cyan-300 border border-cyan-500/40"
+                          : "text-slate-400 hover:text-white"
+                      }`}
+                    >
+                      ⚡ Routine Presets
+                    </button>
                   </div>
 
-                  {/* Active Routine Card Inside Phone */}
-                  <div className="p-3.5 rounded-xl bg-slate-900/90 border border-slate-800 mb-4">
-                    <div className="flex items-center justify-between mb-2">
-                      <div className="flex items-center gap-2">
-                        <span className="text-lg">{current.icon}</span>
-                        <div>
-                          <div className="text-xs font-bold text-white">{current.name}</div>
-                          <div className="text-[10px] font-mono text-slate-400">{current.pkg}</div>
+                  {activeApp === "fiverr" ? (
+                    /* Real App Screenshot View */
+                    <div className="space-y-3">
+                      <div className="relative rounded-2xl overflow-hidden border border-slate-700 bg-black aspect-[9/14] shadow-inner group">
+                        <img
+                          src="/assets/images/screenshot/app_scheduler_main.png"
+                          alt="Real App Scheduler interface on Android"
+                          className="w-full h-full object-cover object-top"
+                        />
+                        {/* Live Overlay Badge on Real Screenshot */}
+                        <div className="absolute top-3 left-3 right-3 p-2.5 rounded-xl bg-slate-950/90 backdrop-blur-md border border-emerald-400/50 flex items-center justify-between shadow-xl">
+                          <div className="flex items-center gap-2">
+                            <span className="online-dot" />
+                            <span className="text-[11px] font-bold text-white">Fiverr Status: ONLINE</span>
+                          </div>
+                          <span className="text-[10px] font-mono text-emerald-400 font-bold bg-emerald-500/10 px-2 py-0.5 rounded">
+                            +340% BOOST
+                          </span>
                         </div>
                       </div>
-                      <span className={`text-[10px] font-mono font-bold px-2 py-0.5 rounded-full border ${current.badgeClass}`}>
-                        {current.badge}
-                      </span>
-                    </div>
 
-                    <p className="text-[11px] text-slate-300 mb-2 leading-relaxed">
-                      {current.desc}
-                    </p>
-
-                    <div className="flex items-center justify-between text-[10px] font-mono pt-2 border-t border-slate-800">
-                      <span className="text-slate-400">INTERVAL: {current.interval}</span>
-                      <span className={`font-bold ${current.impactColor}`}>{current.impact}</span>
-                    </div>
-                  </div>
-
-                  {/* Realistic Android Notification Banner */}
-                  <div className="p-3 rounded-xl bg-gradient-to-r from-slate-900 via-[#0e172e] to-slate-900 border border-cyan-500/30 mb-4">
-                    <div className="flex items-center gap-2 text-[10px] font-mono text-cyan-400 mb-1">
-                      <span className="online-dot" />
-                      <span>REAL-TIME PUSH NOTIFICATION</span>
-                    </div>
-                    <div className="text-xs text-white font-medium leading-snug">
-                      {current.notification}
-                    </div>
-                  </div>
-
-                  {/* Live Countdown Clock */}
-                  <div className="p-3 rounded-xl bg-slate-950 border border-slate-800 flex items-center justify-between">
-                    <div>
-                      <div className="text-[10px] font-mono text-slate-400 uppercase">NEXT AUTO-LAUNCH IN:</div>
-                      <div className="text-xl font-mono font-black text-emerald-400 mt-0.5">
-                        {formatCountdown(countdown)}
+                      <div className="p-3 rounded-xl bg-slate-950 border border-slate-800 flex items-center justify-between">
+                        <div>
+                          <div className="text-[10px] font-mono text-slate-400 uppercase">NEXT AUTO-LAUNCH IN:</div>
+                          <div className="text-lg font-mono font-black text-emerald-400 mt-0.5">
+                            {formatCountdown(countdown)}
+                          </div>
+                        </div>
+                        <span className="text-[10px] font-mono text-emerald-400 font-bold bg-emerald-500/10 px-2.5 py-1 rounded border border-emerald-500/20">
+                          🟢 AUTO-TRIGGER READY
+                        </span>
                       </div>
                     </div>
-                    <span className="text-[10px] font-mono text-slate-400 bg-slate-900 px-2 py-1 rounded border border-slate-800">
-                      WAKELOCK SAFE
-                    </span>
-                  </div>
+                  ) : (
+                    /* Routine Presets Simulator */
+                    <>
+                      {/* Interactive App Preset Selector */}
+                      <div className="mb-4">
+                        <p className="text-[11px] font-semibold text-slate-400 uppercase tracking-wider mb-2">
+                          Select Routine Target:
+                        </p>
+                        <div className="grid grid-cols-3 gap-1.5">
+                          {(
+                            [
+                              { id: "binance", label: "Binance", emoji: "📈" },
+                              { id: "duolingo", label: "Duolingo", emoji: "🦉" },
+                              { id: "notion", label: "Notion", emoji: "📝" },
+                            ] as const
+                          ).map((tab) => (
+                            <button
+                              key={tab.id}
+                              type="button"
+                              onClick={() => setActiveApp(tab.id)}
+                              className={`flex items-center justify-center gap-1 px-2 py-1.5 rounded-lg text-xs font-bold transition-all text-left ${
+                                activeApp === tab.id
+                                  ? "bg-cyan-500/20 border border-cyan-400/60 text-white"
+                                  : "bg-slate-900 border border-slate-800 text-slate-400 hover:text-slate-200"
+                              }`}
+                            >
+                              <span>{tab.emoji}</span>
+                              <span className="truncate">{tab.label}</span>
+                            </button>
+                          ))}
+                        </div>
+                      </div>
+
+                      {/* Active Routine Card Inside Phone */}
+                      <div className="p-3.5 rounded-xl bg-slate-900/90 border border-slate-800 mb-4">
+                        <div className="flex items-center justify-between mb-2">
+                          <div className="flex items-center gap-2">
+                            <span className="text-lg">{current.icon}</span>
+                            <div>
+                              <div className="text-xs font-bold text-white">{current.name}</div>
+                              <div className="text-[10px] font-mono text-slate-400">{current.pkg}</div>
+                            </div>
+                          </div>
+                          <span className={`text-[10px] font-mono font-bold px-2 py-0.5 rounded-full border ${current.badgeClass}`}>
+                            {current.badge}
+                          </span>
+                        </div>
+
+                        <p className="text-[11px] text-slate-300 mb-2 leading-relaxed">
+                          {current.desc}
+                        </p>
+
+                        <div className="flex items-center justify-between text-[10px] font-mono pt-2 border-t border-slate-800">
+                          <span className="text-slate-400">INTERVAL: {current.interval}</span>
+                          <span className={`font-bold ${current.impactColor}`}>{current.impact}</span>
+                        </div>
+                      </div>
+
+                      {/* Notification */}
+                      <div className="p-3 rounded-xl bg-gradient-to-r from-slate-900 via-[#0e172e] to-slate-900 border border-cyan-500/30 mb-4">
+                        <div className="flex items-center gap-2 text-[10px] font-mono text-cyan-400 mb-1">
+                          <span className="online-dot" />
+                          <span>REAL-TIME PUSH NOTIFICATION</span>
+                        </div>
+                        <div className="text-xs text-white font-medium leading-snug">
+                          {current.notification}
+                        </div>
+                      </div>
+                    </>
+                  )}
 
                   {/* Direct Action Link Inside Phone */}
                   <div className="mt-4 pt-3 border-t border-slate-800/80 text-center">
-                    <div className="text-[11px] text-slate-400 mb-2">
-                      Ready to start your routine on Android?
-                    </div>
                     <GooglePlayButton size="sm" className="w-full justify-center" pulsing={false} />
                   </div>
                 </div>
