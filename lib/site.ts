@@ -1,9 +1,9 @@
 export const siteUrl = "https://appopener.app";
 export const siteBrandName = "Appopener";
 export const defaultSeoTitle =
-  "App Scheduler for Android | Auto Open Apps on Schedule";
+  "Appopener - Boost Fiverr Gig Impressions & Auto-Open Any Android App";
 export const defaultDescription =
-  "Install Appopener from Google Play to schedule apps to open automatically on Android, get reminder alerts, and keep daily routines on track.";
+  "Boost your Fiverr gig impressions, stay online 24/7, and schedule ANY Android app to open automatically on your custom routine. Free on Google Play.";
 export const defaultOgImage = `${siteUrl}/assets/images/1.png`;
 export const googlePlayUrl =
   "https://play.google.com/store/apps/details?id=com.tomtech.appscheduler&pcampaignid=web_share";

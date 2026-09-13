@@ -1,4 +1,4 @@
-/* eslint-disable @next/next/no-css-tags, @next/next/no-page-custom-font */
+/* eslint-disable @next/next/no-page-custom-font */
 import type { Metadata } from "next";
 import Script from "next/script";
 import "./globals.css";
@@ -89,22 +89,7 @@ export default function RootLayout({
           href="/assets/images/favicon.ico"
         />
         <link
-          href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"
-          rel="stylesheet"
-        />
-        <link
-          href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css"
-          rel="stylesheet"
-        />
-        <link href="/assets/css/slick.css" rel="stylesheet" />
-        <link
-          id="switcher"
-          href="/assets/css/theme-color/default-theme.css"
-          rel="stylesheet"
-        />
-        <link href="/style.css" rel="stylesheet" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+          href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
           rel="stylesheet"
         />
       </head>

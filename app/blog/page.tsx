@@ -5,9 +5,9 @@ import { seoKeywords } from "@/lib/seo-keywords";
 import { blogPosts } from "@/lib/blog-data";
 
 export const metadata: Metadata = {
-  title: "Blog – App Scheduling, Productivity & Android Automation Tips",
+  title: "SEO Guides & Blog – Fiverr Gig Impressions, Android Automation & App Scheduling",
   description:
-    "Read expert articles about app scheduling, auto open apps, schedule apps android, productivity android app, workflow automation, automatic app launcher tips, and Android development guides.",
+    "Master the secrets of increasing Fiverr gig impressions, staying online automatically, scheduling apps on Android, and supercharging freelance productivity.",
   keywords: seoKeywords,
   alternates: {
     canonical: "/blog",
@@ -20,50 +20,57 @@ export default function BlogPage() {
   );
 
   return (
-    <PageLayout title="Blog">
-      <p style={{ marginBottom: "32px", fontSize: "17px", color: "#555", lineHeight: 1.7 }}>
-        Expert tips, in-depth guides, and the latest updates about app scheduling, Android
-        productivity, workflow automation, and developer tools.
+    <PageLayout title="Guides, Tips & Freelance Growth">
+      <p className="text-lg text-slate-300 mb-10 leading-relaxed">
+        Expert breakdowns on how to explode Fiverr gig impressions, maintain active online seller presence, automate routine app launches on Android, and scale your digital workflow.
       </p>
-      <div style={{ display: "flex", flexDirection: "column", gap: "32px" }}>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {sortedPosts.map((post) => (
-          <article key={post.slug}>
-            <Link
-              href={`/blog/${post.slug}`}
-              style={{ textDecoration: "none", color: "inherit" }}
-            >
-              <h2
-                style={{
-                  fontSize: "22px",
-                  marginBottom: "8px",
-                  color: "#051634",
-                }}
+          <article
+            key={post.slug}
+            className="p-6 rounded-2xl bg-slate-900/80 border border-white/[0.08] hover:border-emerald-500/40 transition-all flex flex-col justify-between group shadow-lg"
+          >
+            <div>
+              <div className="flex items-center gap-2 mb-3">
+                <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/20">
+                  {post.slug.includes("fiverr") ? "FIVERR & GIGS" : "ANDROID AUTOMATION"}
+                </span>
+                <time
+                  dateTime={post.date}
+                  className="text-xs text-slate-400 font-mono"
+                >
+                  {new Date(post.date).toLocaleDateString("en-US", {
+                    year: "numeric",
+                    month: "short",
+                    day: "numeric",
+                  })}
+                </time>
+              </div>
+
+              <Link
+                href={`/blog/${post.slug}`}
+                className="text-decoration-none group-hover:text-emerald-400 transition-colors"
               >
-                {post.title}
-              </h2>
-            </Link>
-            <time
-              dateTime={post.date}
-              style={{ display: "block", color: "#666", marginBottom: "8px", fontSize: "14px" }}
-            >
-              {new Date(post.date).toLocaleDateString("en-US", {
-                year: "numeric",
-                month: "long",
-                day: "numeric",
-              })}
-            </time>
-            <p style={{ margin: 0, lineHeight: 1.7 }}>{post.excerpt}</p>
-            <Link
-              href={`/blog/${post.slug}`}
-              style={{
-                display: "inline-block",
-                marginTop: "8px",
-                color: "#0d4fb5",
-                fontWeight: 600,
-              }}
-            >
-              Read more →
-            </Link>
+                <h2 className="text-xl font-bold text-white mb-3 group-hover:text-emerald-300 leading-snug">
+                  {post.title}
+                </h2>
+              </Link>
+
+              <p className="text-sm text-slate-300 leading-relaxed mb-6">
+                {post.excerpt}
+              </p>
+            </div>
+
+            <div>
+              <Link
+                href={`/blog/${post.slug}`}
+                className="inline-flex items-center gap-2 text-xs font-bold font-mono tracking-wider text-emerald-400 hover:text-emerald-300 group-hover:translate-x-1 transition-all"
+              >
+                <span>READ COMPLETE GUIDE</span>
+                <span>→</span>
+              </Link>
+            </div>
           </article>
         ))}
       </div>

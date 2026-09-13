@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import PageLayout from "@/components/PageLayout";
 import { seoKeywords } from "@/lib/seo-keywords";
 import { blogPostMap, blogSlugs } from "@/lib/blog-data";
+import { googlePlayUrl, siteUrl } from "@/lib/site";
 
 export async function generateStaticParams() {
   return blogSlugs.map((slug) => ({ slug }));
@@ -19,10 +20,17 @@ export async function generateMetadata({
   if (!post) return { title: "Blog" };
   return {
     title: post.title,
-    description: `${post.excerpt} – Appopener Blog`,
-    keywords: seoKeywords,
+    description: `${post.excerpt}`,
+    keywords: [...seoKeywords, post.title.toLowerCase()],
     alternates: {
       canonical: `/blog/${slug}`,
+    },
+    openGraph: {
+      title: post.title,
+      description: post.excerpt,
+      type: "article",
+      publishedTime: post.date,
+      url: `${siteUrl}/blog/${slug}`,
     },
   };
 }
@@ -51,54 +59,69 @@ export default async function BlogPostPage({
     author: {
       "@type": "Organization",
       name: "Appopener Team",
-      url: "https://appopener.app",
+      url: siteUrl,
     },
     publisher: {
       "@type": "Organization",
       name: "Appopener",
-      url: "https://appopener.app",
+      url: siteUrl,
       logo: {
         "@type": "ImageObject",
-        url: "https://appopener.app/assets/images/logo.png",
+        url: `${siteUrl}/assets/images/logo.png`,
       },
     },
     mainEntityOfPage: {
       "@type": "WebPage",
-      "@id": `https://appopener.app/blog/${slug}`,
+      "@id": `${siteUrl}/blog/${slug}`,
     },
   };
 
   return (
     <PageLayout title={post.title}>
-      <div style={{ maxWidth: "720px" }}>
-        <time
-          dateTime={post.date}
-          style={{ display: "block", color: "#666", marginBottom: "20px", fontSize: "14px" }}
-        >
-          {new Date(post.date).toLocaleDateString("en-US", {
-            year: "numeric",
-            month: "long",
-            day: "numeric",
-          })}
-        </time>
-        <div style={{ lineHeight: 1.85 }}>
+      <div className="max-w-3xl">
+        <div className="flex items-center gap-3 mb-8">
+          <time
+            dateTime={post.date}
+            className="text-xs font-mono font-semibold text-emerald-400 bg-emerald-500/10 px-3 py-1 rounded-full border border-emerald-500/20"
+          >
+            Published on{" "}
+            {new Date(post.date).toLocaleDateString("en-US", {
+              year: "numeric",
+              month: "long",
+              day: "numeric",
+            })}
+          </time>
+          <span className="text-xs text-slate-400 font-mono">• 6 min read</span>
+        </div>
+
+        <div className="text-slate-200 leading-relaxed text-base sm:text-lg space-y-6">
           {paragraphs.map((para, i) => {
             if (para.startsWith("## ")) {
               return (
                 <h2
                   key={i}
-                  style={{ marginTop: "28px", marginBottom: "12px", fontSize: "20px" }}
+                  className="text-2xl sm:text-3xl font-black text-white pt-6 pb-2 border-b border-slate-800"
                 >
                   {para.slice(3)}
                 </h2>
               );
             }
+            if (para.startsWith("### ")) {
+              return (
+                <h3
+                  key={i}
+                  className="text-xl font-bold text-emerald-400 pt-4"
+                >
+                  {para.slice(4)}
+                </h3>
+              );
+            }
             if (para.startsWith("- ")) {
               const items = para.split("\n").filter((line) => line.startsWith("- "));
               return (
-                <ul key={i} style={{ marginBottom: "16px", paddingLeft: "24px" }}>
+                <ul key={i} className="space-y-2 pl-4 list-disc marker:text-emerald-400">
                   {items.map((item, j) => (
-                    <li key={j} style={{ marginBottom: "6px" }}>
+                    <li key={j} className="text-slate-300">
                       {item.slice(2)}
                     </li>
                   ))}
@@ -106,44 +129,39 @@ export default async function BlogPostPage({
               );
             }
             return (
-              <p key={i} style={{ marginBottom: "16px" }}>
+              <p key={i} className="text-slate-300 leading-relaxed">
                 {para}
               </p>
             );
           })}
         </div>
 
-        <div
-          style={{
-            marginTop: "40px",
-            padding: "20px 24px",
-            background: "#f0f6ff",
-            borderRadius: "10px",
-            borderLeft: "4px solid #0d4fb5",
-          }}
-        >
-          <p style={{ margin: 0, fontWeight: 600, marginBottom: "8px" }}>
-            Ready to automate your app schedule?
+        {/* CTA Box */}
+        <div className="mt-12 p-6 sm:p-8 rounded-2xl bg-gradient-to-br from-emerald-500/15 via-slate-900 to-cyan-500/10 border border-emerald-500/30 shadow-xl">
+          <h3 className="text-xl font-black text-white mb-2">
+            Automate Your Fiverr Presence & App Routines
+          </h3>
+          <p className="text-slate-300 text-sm leading-relaxed mb-6">
+            Boost your Fiverr gig impressions, maintain active online status 24/7, and schedule any Android application on your terms.
           </p>
-          <p style={{ margin: 0, lineHeight: 1.6 }}>
-            Download Appopener from the{" "}
-            <a
-              href="https://play.google.com/store/apps/details?id=com.tomtech.appscheduler&pcampaignid=web_share"
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{ color: "#0d4fb5", fontWeight: 600 }}
-            >
-              Google Play Store
-            </a>{" "}
-            and start scheduling your apps today.
-          </p>
+          <a
+            href={googlePlayUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-neon-emerald text-xs tracking-wider"
+          >
+            DOWNLOAD APPOPENER FREE ON GOOGLE PLAY
+          </a>
         </div>
 
-        <p style={{ marginTop: "32px" }}>
-          <Link href="/blog" style={{ color: "#0d4fb5", fontWeight: 600 }}>
-            ← Back to Blog
+        <div className="mt-10 pt-6 border-t border-slate-800">
+          <Link
+            href="/blog"
+            className="inline-flex items-center gap-2 text-sm font-bold text-emerald-400 hover:text-emerald-300"
+          >
+            ← Back to All Guides & Blog
           </Link>
-        </p>
+        </div>
       </div>
 
       <script

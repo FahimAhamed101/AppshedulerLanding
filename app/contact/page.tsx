@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import PageLayout from "@/components/PageLayout";
 import { seoKeywords } from "@/lib/seo-keywords";
 import { googlePlayUrl, helloEmail, supportEmail } from "@/lib/site";
@@ -58,12 +57,14 @@ export default function ContactPage() {
           </p>
         </div>
 
-        <div style={{ marginTop: "40px", padding: "24px", background: "#f8f9fa", borderRadius: "8px" }}>
-          <h3 style={{ marginBottom: "16px" }}>Send us a message</h3>
-          <p style={{ marginBottom: "16px" }}>
-            You can also use the contact form on our{" "}
-            <Link href="/#mu-contact">home page</Link> to send a message
-            directly.
+        <div style={{ marginTop: "40px", padding: "24px", background: "rgba(16, 185, 129, 0.08)", border: "1px solid rgba(16, 185, 129, 0.3)", borderRadius: "16px" }}>
+          <h3 style={{ marginBottom: "12px", color: "#ffffff" }}>Need Direct Support?</h3>
+          <p style={{ margin: 0 }}>
+            Reach out directly to our engineering team at{" "}
+            <a href={`mailto:${supportEmail}`} style={{ color: "#34d399", fontWeight: 700 }}>
+              {supportEmail}
+            </a>
+            . We typically respond within 12 hours.
           </p>
         </div>
       </div>
